@@ -1,0 +1,33 @@
+/* Version: Code Snippet "MA Custom Fonts" 3.4.2 */
+@font-face{font-family:"Boska";font-weight:200;font-style:italic;src:url("//luminr.local/wp-content/uploads/fonts/Boska-ExtralightItalic.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Boska";font-weight:200;font-style:normal;src:url("//luminr.local/wp-content/uploads/fonts/Boska-Extralight.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Boska";font-weight:300;font-style:italic;src:url("//luminr.local/wp-content/uploads/fonts/Boska-LightItalic.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Boska";font-weight:300;font-style:normal;src:url("//luminr.local/wp-content/uploads/fonts/Boska-Light.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Boska";font-weight:400;font-style:italic;src:url("//luminr.local/wp-content/uploads/fonts/Boska-Italic.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Boska";font-weight:400;font-style:normal;src:url("//luminr.local/wp-content/uploads/fonts/Boska-Regular.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Boska";font-weight:500;font-style:italic;src:url("//luminr.local/wp-content/uploads/fonts/Boska-MediumItalic.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Boska";font-weight:500;font-style:normal;src:url("//luminr.local/wp-content/uploads/fonts/Boska-Medium.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Boska";font-weight:700;font-style:italic;src:url("//luminr.local/wp-content/uploads/fonts/Boska-BoldItalic.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Boska";font-weight:700;font-style:normal;src:url("//luminr.local/wp-content/uploads/fonts/Boska-Bold.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Boska";font-weight:900;font-style:italic;src:url("//luminr.local/wp-content/uploads/fonts/Boska-BlackItalic.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Boska";font-weight:900;font-style:normal;src:url("//luminr.local/wp-content/uploads/fonts/Boska-Black.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:100;font-style:italic;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-ThinItalic.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:100;font-style:normal;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-Thin.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:200;font-style:italic;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-ExtralightItalic.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:200;font-style:normal;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-Extralight.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:300;font-style:italic;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-LightItalic.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:300;font-style:normal;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-Light.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:400;font-style:italic;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-Italic.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:400;font-style:normal;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-Regular.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:500;font-style:italic;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-MediumItalic.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:500;font-style:normal;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-Medium.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:600;font-style:italic;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-SemiboldItalic.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:600;font-style:normal;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-Semibold.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:700;font-style:italic;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-BoldItalic.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:700;font-style:normal;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-Bold.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:800;font-style:italic;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-ExtraboldItalic.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:800;font-style:normal;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-Extrabold.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:900;font-style:italic;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-BlackItalic.otf") format("opentype");font-display:block;}
+@font-face{font-family:"Switzer";font-weight:900;font-style:normal;src:url("//luminr.local/wp-content/uploads/fonts/Switzer-Black.otf") format("opentype");font-display:block;}
+.has-boska-font-family{font-family:"Boska";}
+.has-switzer-font-family{font-family:"Switzer";}
