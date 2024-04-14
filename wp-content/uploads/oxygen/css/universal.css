@@ -518,6 +518,13 @@ flex-direction:column;
 justify-content:space-around;
 gap:10px;
 }
+@media (max-width: 1132px) {
+.oxel_accordion {
+ width:79.4%;
+ height:100%;
+}
+}
+
 @media (max-width: 479px) {
 .oxel_accordion {
  padding-left:0px;
@@ -764,7 +771,7 @@ display:flex;
 flex-direction:column;
 align-items:stretch;
 }
-@media (max-width: 991px) {
+@media (max-width: 1132px) {
 .music-pricing-wrapper {
  text-align:center;
 }
@@ -791,15 +798,15 @@ flex-direction:column;
  margin-bottom:18px;
  margin-left:16px;
 }
-@media (max-width: 1120px) {
+@media (max-width: 1132px) {
 .music-pricing-bullet {
- margin-left:12px;
+ margin-left:24px;
 }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1120px) {
 .music-pricing-bullet {
- margin-left:24px;
+ margin-left:12px;
 }
 }
 
@@ -812,7 +819,7 @@ flex-direction:column;
 }
 .music-pricing-column {
 }
-@media (max-width: 991px) {
+@media (max-width: 1132px) {
 .music-pricing-column {
 }
 .music-pricing-column:not(.ct-section):not(.oxy-easy-posts),

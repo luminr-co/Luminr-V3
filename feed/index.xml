@@ -18,7 +18,7 @@
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.5</generator>
+	<generator>https://wordpress.org/?v=6.5.2</generator>
 	<item>
 		<title>Hello world!</title>
 		<link>https://luminr-co.github.io/Luminr-V3/hello-world/</link>
