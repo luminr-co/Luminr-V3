@@ -8,7 +8,7 @@
 	
 	<div class="oxygen-control-row">
 		<div class="oxygen-control-wrapper custom-attributes-icons">
-			<img src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/oxygen/component-framework/toolbar/views/<br />_<b>Fatal error</b>:  Uncaught Error: Undefined constant &quot;CT_FW_URI&quot; in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/custom-attributes.view.php:13_Stack trace:_#0 {main}_  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/custom-attributes.view.php</b> on line <b>13</b><br />">
+			<img src="/wp-content/plugins/oxygen/component-framework/toolbar/views/<br />_<b>Fatal error</b>:  Uncaught Error: Undefined constant &quot;CT_FW_URI&quot; in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/custom-attributes.view.php:13_Stack trace:_#0 {main}_  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/custom-attributes.view.php</b> on line <b>13</b><br />">
 </div>
 </div>
 </div>
