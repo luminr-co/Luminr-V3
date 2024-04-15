@@ -2,23 +2,9 @@
 	<span class="oxy-mixed-code-button" ng-click="switchTab('advanced', 'code-mixed')">Mixed View</span>
 </div>
 <div class="oxygen-sidebar-code-editor-wrap">
-  	<?php 
-		global $oxygen_toolbar;
-		$oxygen_toolbar->codemirror6_script("code-php","oxy-code-php-cm6", "php");
-	?>
-	<div id="oxy-code-php-cm6" class="oxy-code-cm6"></div>
-</div>
-
-<div class="oxygen-control-row oxygen-control-row-bottom-bar oxygen-control-row-bottom-bar-code-editor">
-  <?php 
-    $oxygen_toolbar->codemirror_theme_chooser(); ?>
-  <a href="#" class="oxygen-code-editor-apply"
-    ng-click="iframeScope.applyCodeBlockPHP()">
-    <?php _e("Apply Code", "oxygen"); ?>
-  </a>
-  <a href="#" class="oxygen-code-editor-expand"
-    data-collapse="<?php _e("Collapse Editor", "oxygen"); ?>" data-expand="<?php _e("Expand Editor", "oxygen"); ?>"
-    ng-click="toggleSidebar()">
-    <?php _e("Expand Editor", "oxygen"); ?>
-  </a>
+  	<br>
+<b>Fatal error</b>:  Uncaught Error: Call to a member function codemirror6_script() on null in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/code-php.view.php:7
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/code-php.view.php</b> on line <b>7</b><br>
 </div>

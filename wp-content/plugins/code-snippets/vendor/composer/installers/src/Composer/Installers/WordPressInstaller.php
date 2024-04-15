@@ -1,12 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-class WordPressInstaller extends BaseInstaller
-{
-    protected $locations = array(
-        'plugin'    => 'wp-content/plugins/{$name}/',
-        'theme'     => 'wp-content/themes/{$name}/',
-        'muplugin'  => 'wp-content/mu-plugins/{$name}/',
-        'dropin'    => 'wp-content/{$name}/',
-    );
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/WordPressInstaller.php:4
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/WordPressInstaller.php</b> on line <b>4</b><br>

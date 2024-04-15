@@ -1,26 +1,37 @@
-<!doctype html>
-
 <title>CodeMirror: reStructuredText mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="../../addon/mode/overlay.js"></script>
-<script src="rst.js"></script>
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/addon/mode/overlay.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/rst/rst.js"></script>
 <style type="text/css">.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
-<div id=nav>
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+
+<div id="nav">
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/codemirror/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">reStructuredText</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">reStructuredText</a>
+  </li>
+</ul>
 </div>
 
 <article>
@@ -516,11 +527,9 @@ There are some problems one commonly runs into while authoring reST documents:
        will be shadowed.  Therefore, Sphinx re-exports it as :rst:dir:`rst-class`.
 </textarea></form>
 
-    <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    <script>var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
         lineNumbers: true,
-      });
-    </script>
+      });</script>
     <p>
         The <code>python</code> mode will be used for highlighting blocks
         containing Python/IPython terminal sessions: blocks starting with

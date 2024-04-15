@@ -1,29 +1,5 @@
-<?php
-namespace enshrined\svgSanitize\Tests;
-
-use enshrined\svgSanitize\data\AllowedTags;
-use PHPUnit\Framework\TestCase;
-
-/**
- * Class AllowedTagsTest
- */
-class AllowedTagsTest extends TestCase
-{
-    /**
-     * Test that the class implements the interface
-     */
-    public function testItImplementsTheInterface()
-    {
-        $class = new AllowedTags();
-        self::assertInstanceOf('enshrined\svgSanitize\data\TagInterface', $class);
-    }
-
-    /**
-     * Test that an array is returned
-     */
-    public function testThatItReturnsAnArray()
-    {
-        $result = AllowedTags::getTags();
-        self::assertSame('array', gettype($result));
-    }
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;PHPUnit\Framework\TestCase&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/svg-support/vendor/enshrined/svg-sanitize/tests/AllowedTagsTest.php:10
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/svg-support/vendor/enshrined/svg-sanitize/tests/AllowedTagsTest.php</b> on line <b>10</b><br>

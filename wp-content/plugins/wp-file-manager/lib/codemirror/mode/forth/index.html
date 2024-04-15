@@ -1,39 +1,49 @@
-<!doctype html>
-
 <title>CodeMirror: Forth mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
 
-<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<link rel=stylesheet href="../../theme/colorforth.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="forth.js"></script>
-<style>
-.CodeMirror {
+<link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/colorforth.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/forth/forth.js"></script>
+<style>.CodeMirror {
     font-family: 'Droid Sans Mono', monospace;
     font-size: 14px;
-}
-</style>
-<div id=nav>
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+}</style>
+
+
+<div id="nav">
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/codemirror/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">Forth</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">Forth</a>
+  </li>
+</ul>
 </div>
 
 <article>
 
 <h2>Forth mode</h2>
 
-<form><textarea id="code" name="code">
+<form>
+<textarea id="code" name="code">
 \ Insertion sort
 
 : cell-  1 cells - ;
@@ -41,14 +51,7 @@
 : insert ( start end -- start )
   dup @ >r ( r: v )
   begin
-    2dup <
-  while
-    r@ over cell- @ <
-  while
-    cell-
-    dup @ over cell+ !
-  repeat then
-  r> swap ! ;
+    2dup  swap ! ;
 
 : sort ( array len -- )
   1 ?do
@@ -56,8 +59,7 @@
   loop drop ;</textarea>
   </form>
 
-<script>
-  var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+<script>var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
     lineNumbers: true,
     lineWrapping: true,
     indentUnit: 2,
@@ -65,8 +67,7 @@
     autofocus: true,
     theme: "colorforth",
     mode: "text/x-forth"
-  });
-</script>
+  });</script>
 
 <p>Simple mode that handle Forth-Syntax (<a href="http://en.wikipedia.org/wiki/Forth_%28programming_language%29">Forth on WikiPedia</a>).</p>
 

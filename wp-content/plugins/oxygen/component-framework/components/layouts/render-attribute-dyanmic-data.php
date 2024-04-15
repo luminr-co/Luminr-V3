@@ -1,25 +1,5 @@
-<?php
-	// TODO review the security aspect
-
-	if (!is_user_logged_in() || !current_user_can( 'manage_options' )) {
-	    die();
-		}
-
-	$nonce  	= $_REQUEST['nonce'];
-	$post_id 	= $_REQUEST['post_id'];
-
-	// check nonce
-	if ( ! wp_verify_nonce( $nonce, 'oxygen-nonce-' . $post_id ) ) {
-	    // This nonce is not valid.
-	    die( 'Security check' );
-	}
-
-	$shortcode = file_get_contents('php://input');
-	$shortcode = ct_sign_oxy_dynamic_shortcode(array($shortcode));
-	$shortcode = do_shortcode($shortcode);
-
-	echo $shortcode;
-	
-	die();
-
-?>
+<br>
+<b>Fatal error</b>:  Uncaught Error: Call to undefined function is_user_logged_in() in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/components/layouts/render-attribute-dyanmic-data.php:4
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/components/layouts/render-attribute-dyanmic-data.php</b> on line <b>4</b><br>

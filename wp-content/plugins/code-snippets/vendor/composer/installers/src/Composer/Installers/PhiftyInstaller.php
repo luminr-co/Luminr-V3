@@ -1,11 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-class PhiftyInstaller extends BaseInstaller
-{
-    protected $locations = array(
-        'bundle' => 'bundles/{$name}/',
-        'library' => 'libraries/{$name}/',
-        'framework' => 'frameworks/{$name}/',
-    );
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/PhiftyInstaller.php:4
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/PhiftyInstaller.php</b> on line <b>4</b><br>

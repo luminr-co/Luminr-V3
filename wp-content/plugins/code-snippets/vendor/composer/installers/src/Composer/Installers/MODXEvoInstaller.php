@@ -1,16 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-/**
- * An installer to handle MODX Evolution specifics when installing packages.
- */
-class MODXEvoInstaller extends BaseInstaller
-{
-    protected $locations = array(
-        'snippet'       => 'assets/snippets/{$name}/',
-        'plugin'        => 'assets/plugins/{$name}/',
-        'module'        => 'assets/modules/{$name}/',
-        'template'      => 'assets/templates/{$name}/',
-        'lib'           => 'assets/lib/{$name}/'
-    );
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/MODXEvoInstaller.php:7
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/MODXEvoInstaller.php</b> on line <b>7</b><br>

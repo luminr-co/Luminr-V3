@@ -1,38 +1,5 @@
-<?php $comments_list_defaults = array(
-	'oxy_comments' => array(
-    	
-    	array(
-	        "name" => __("Default","oxygen"),
-	        "slug" => "default",
-	        "options" => array(
-	        	"original" => array(
-	                "code-php" => file_get_contents(OXYGEN_VSB_COMMENTS_LIST_TEMPLATES_PATH."default.php"),
-	                "code-css" => file_get_contents(OXYGEN_VSB_COMMENTS_LIST_TEMPLATES_PATH."default.css"),
-	            )
-	        )
-	    ),
-
-		array(
-	        "name" => __("Grey Highlight","oxygen"),
-	        "slug" => "grey-highlight",
-	        "options" => array(
-	        	"original" => array(
-	                "code-php" => file_get_contents(OXYGEN_VSB_COMMENTS_LIST_TEMPLATES_PATH."default.php"),
-	                "code-css" => file_get_contents(OXYGEN_VSB_COMMENTS_LIST_TEMPLATES_PATH."grey-highlight.css"),
-	            )
-	        )
-	    ),
-
-		array(
-	        "name" => __("White Blocks","oxygen"),
-	        "slug" => "white-blocks",
-	        "options" => array(
-	        	"original" => array(
-	                "code-php" => file_get_contents(OXYGEN_VSB_COMMENTS_LIST_TEMPLATES_PATH."default.php"),
-	                "code-css" => file_get_contents(OXYGEN_VSB_COMMENTS_LIST_TEMPLATES_PATH."white-blocks.css"),
-	            )
-	        )
-	    )
-
-    )
-);
+<br>
+<b>Fatal error</b>:  Uncaught Error: Call to undefined function __() in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/components/classes/comments-list-templates/comments-list-presets.php:5
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/components/classes/comments-list-templates/comments-list-presets.php</b> on line <b>5</b><br>

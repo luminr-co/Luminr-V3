@@ -1,26 +1,37 @@
-<!doctype html>
-
 <title>CodeMirror: Web IDL mode</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../../doc/docs.css">
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="../../addon/edit/matchbrackets.js"></script>
-<script src="webidl.js"></script>
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/addon/edit/matchbrackets.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/webidl/webidl.js"></script>
 <style type="text/css">.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
 
+
+
 <div id="nav">
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id="logo" src="../../doc/logo.png"></a>
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/codemirror/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class="active" href="#">Web IDL</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">Web IDL</a>
+  </li>
+</ul>
 </div>
 
 <article>
@@ -60,12 +71,10 @@ partial interface HTMLImageElement {
 </textarea>
   </div>
 
-  <script>
-    var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+  <script>var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
       lineNumbers: true,
       matchBrackets: true
-    });
-  </script>
+    });</script>
 
   <p><strong>MIME type defined:</strong> <code>text/x-webidl</code>.</p>
 </article>

@@ -1,21 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-class PimcoreInstaller extends BaseInstaller
-{
-    protected $locations = array(
-        'plugin' => 'plugins/{$name}/',
-    );
-
-    /**
-     * Format package name to CamelCase
-     */
-    public function inflectPackageVars($vars)
-    {
-        $vars['name'] = strtolower(preg_replace('/(?<=\\w)([A-Z])/', '_\\1', $vars['name']));
-        $vars['name'] = str_replace(array('-', '_'), ' ', $vars['name']);
-        $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
-
-        return $vars;
-    }
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/PimcoreInstaller.php:4
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/PimcoreInstaller.php</b> on line <b>4</b><br>

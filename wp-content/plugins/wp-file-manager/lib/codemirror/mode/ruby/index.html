@@ -1,29 +1,38 @@
-<!doctype html>
-
 <title>CodeMirror: Ruby mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="../../addon/edit/matchbrackets.js"></script>
-<script src="ruby.js"></script>
-<style>
-      .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
-      .cm-s-default span.cm-arrow { color: red; }
-    </style>
-<div id=nav>
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/addon/edit/matchbrackets.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/ruby/ruby.js"></script>
+<style>.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
+      .cm-s-default span.cm-arrow { color: red; }</style>
+
+
+<div id="nav">
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/codemirror/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">Ruby</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">Ruby</a>
+  </li>
+</ul>
 </div>
 
 <article>
@@ -109,71 +118,12 @@ def polystr(p)
     # *** Now p is a non-empty list of [ coef, exponent ] pairs. ***
 
     # Convert the first term, preceded by a "-" if it's negative.
-    result = (if p[0][0] < 0 then "-" else "" end) + term_to_str(*p[0])
-
-    # Convert the rest of the terms, in each case adding the appropriate
-    # + or - separating them.  
-    for term in p[1...p.length]
-        # Add the separator then the rep. of the term.
-        result += (if term[0] < 0 then " - " else " + " end) + 
-                term_to_str(*term)
-    end
-
-    return result
-end
-        
-#
-# Run until some kind of endfile.
-begin
-    # Repeat until an exception or quit gets us out.
-    while true
-        # Read a poly until it works.  An EOF will except out of the
-        # program.
-        print "\n"
-        begin
-            poly = readints("Enter a polynomial coefficients: ")
-        rescue TypeError
-            print "Try again.\n"
-            retry
-        end
-        break if poly.empty?
-
-        # Read and evaluate x values until the user types a blank line.
-        # Again, an EOF will except out of the pgm.
-        while true
-            # Request an integer.
-            print "Enter x value or blank line: "
-            x = readline.chomp
-            break if x == ''
-            raise EOFError.new if x == 'quit'
-
-            # If it looks bad, let's try again.
-            if x !~ /^\-?\d+$/
-                print "That doesn't look like an integer.  Please try again.\n"
-                next
-            end
-
-            # Convert to an integer and print the result.
-            x = x.to_i
-            print "p(x) = ", polystr(poly), "\n"
-            print "p(", x, ") = ", polyval(x, poly), "\n"
-        end
-    end
-rescue EOFError
-    print "\n=== EOF ===\n"
-rescue Interrupt, SignalException
-    print "\n=== Interrupted ===\n"
-else
-    print "--- Bye ---\n"
-end
-</textarea></form>
-    <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    result = (if p[0][0] </textarea></form>
+    <script>var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
         mode: "text/x-ruby",
         matchBrackets: true,
         indentUnit: 4
-      });
-    </script>
+      });</script>
 
     <p><strong>MIME types defined:</strong> <code>text/x-ruby</code>.</p>
 

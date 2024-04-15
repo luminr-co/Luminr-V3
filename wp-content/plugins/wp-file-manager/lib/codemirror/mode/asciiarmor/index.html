@@ -1,25 +1,36 @@
-<!doctype html>
-
 <title>CodeMirror: ASCII Armor (PGP) mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="asciiarmor.js"></script>
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/asciiarmor/asciiarmor.js"></script>
 <style>.CodeMirror {background: #f8f8f8;}</style>
-<div id=nav>
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+
+<div id="nav">
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/codemirror/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">ASCII Armor</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">ASCII Armor</a>
+  </li>
+</ul>
 </div>
 
 <article>
@@ -34,11 +45,9 @@ vBSFjNSiVHsuAA==
 -----END PGP MESSAGE-----
 </textarea></form>
 
-<script>
-var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+<script>var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true
-});
-</script>
+});</script>
 
 <p><strong>MIME types
 defined:</strong> <code>application/pgp</code>, <code>application/pgp-keys</code>, <code>application/pgp-signature</code></p>

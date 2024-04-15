@@ -1,10 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-class RedaxoInstaller extends BaseInstaller
-{
-    protected $locations = array(
-        'addon'          => 'redaxo/include/addons/{$name}/',
-        'bestyle-plugin' => 'redaxo/include/addons/be_style/plugins/{$name}/'
-    );
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/RedaxoInstaller.php:4
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/RedaxoInstaller.php</b> on line <b>4</b><br>

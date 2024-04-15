@@ -1,28 +1,39 @@
-<!doctype html>
-
 <title>CodeMirror: C-like mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="../../addon/edit/matchbrackets.js"></script>
-<link rel="stylesheet" href="../../addon/hint/show-hint.css">
-<script src="../../addon/hint/show-hint.js"></script>
-<script src="clike.js"></script>
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/addon/edit/matchbrackets.js"></script>
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/addon/hint/show-hint.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/addon/hint/show-hint.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/clike/clike.js"></script>
 <style>.CodeMirror {border: 2px inset #dee;}</style>
-<div id=nav>
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+
+<div id="nav">
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/codemirror/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">C-like</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">C-like</a>
+  </li>
+</ul>
 </div>
 
 <article>
@@ -94,7 +105,7 @@ void* zmq_thread_init(void* zmq_context, int signal_fd) {
   pthread_detach(thread);
   return context;
 }
-</textarea></div>
+</malloc.h></fcntl.h></stdio.h></time.h></semaphore.h></pthread.h></zmq.h></textarea></div>
 
 <h2>C++ example</h2>
 
@@ -119,25 +130,25 @@ int Helper(const MyType& param) {
 
 class ForwardDec;
 
-template <class T, class V>
+template <class t class v>
 class Class : public BaseClass {
-  const MyType<T, V> member_;
+  const MyType<t v> member_;
 
  public:
-  const MyType<T, V>& Method() const {
+  const MyType<t v>& Method() const {
     return member_;
   }
 
-  void Method2(MyType<T, V>* value);
+  void Method2(MyType<t v>* value);
 }
 
-template <class T, class V>
-void Class::Method2(MyType<T, V>* value) {
-  std::out << 1 >> method();
+template <class t class v>
+void Class::Method2(MyType<t v>* value) {
+  std::out > method();
   value->Method3(member_);
   member_ = value;
 }
-</textarea></div>
+</t></class></t></t></t></class></iostream></textarea></div>
 
 <h2>Objective-C example</h2>
 
@@ -147,7 +158,7 @@ This is a longer comment
 That spans two lines
 */
 
-#import <Test/Test.h>
+#import <test>
 @implementation YourAppDelegate
 
 // This is a one-line comment
@@ -157,7 +168,7 @@ That spans two lines
   int test = 5;
   return YES;
 }
-</textarea></div>
+</test></textarea></div>
 
 <h2>Java example</h2>
 
@@ -169,8 +180,8 @@ public enum Enum {
   VAL1, VAL2, VAL3
 }
 
-public class Class<T, V> implements MyInterface {
-  public static final MyType<T, V> member;
+public class Class<t v> implements MyInterface {
+  public static final MyType<t v> member;
   
   private class InnerClass {
     public int zero() {
@@ -183,13 +194,13 @@ public class Class<T, V> implements MyInterface {
     return member;
   }
 
-  public void method2(MyType<T, V> value) {
+  public void method2(MyType<t v> value) {
     method();
     value.method3();
     member = value;
   }
 }
-</textarea></div>
+</t></t></t></textarea></div>
 
 <h2>Scala example</h2>
 
@@ -198,13 +209,7 @@ object FilterTest extends App {
   def filter(xs: List[Int], threshold: Int) = {
     def process(ys: List[Int]): List[Int] =
       if (ys.isEmpty) ys
-      else if (ys.head < threshold) ys.head :: process(ys.tail)
-      else process(ys.tail)
-    process(xs)
-  }
-  println(filter(List(1, 9, 2, 8, 3, 7, 4), 5))
-}
-</textarea></div>
+      else if (ys.head </textarea></div>
 
 <h2>Kotlin mode</h2>
 
@@ -234,7 +239,7 @@ public class HttpServer(private val appServer: AppServer) {
         bootstrap = ServerBootstrap()
 
         bootstrap.group(primaryGroup, workerGroup)
-        bootstrap.channel(javaClass<NioServerSocketChannel>())
+        bootstrap.channel(javaClass<nioserversocketchannel>())
         bootstrap.childHandler(NettyPipelineInitializer(appServer))
     }
 
@@ -256,7 +261,7 @@ public class HttpServer(private val appServer: AppServer) {
         workerGroup.terminationFuture().sync()
     }
 }
-</textarea></div>
+</nioserversocketchannel></textarea></div>
 
 <h2>Ceylon mode</h2>
 
@@ -303,8 +308,7 @@ shared {Element+} loop&lt;Element&gt;(
     };
 </textarea></div>
 
-    <script>
-      var cEditor = CodeMirror.fromTextArea(document.getElementById("c-code"), {
+    <script>var cEditor = CodeMirror.fromTextArea(document.getElementById("c-code"), {
         lineNumbers: true,
         matchBrackets: true,
         mode: "text/x-csrc"
@@ -340,8 +344,7 @@ shared {Element+} loop&lt;Element&gt;(
           mode: "text/x-ceylon"
       });
       var mac = CodeMirror.keyMap.default == CodeMirror.keyMap.macDefault;
-      CodeMirror.keyMap.default[(mac ? "Cmd" : "Ctrl") + "-Space"] = "autocomplete";
-    </script>
+      CodeMirror.keyMap.default[(mac ? "Cmd" : "Ctrl") + "-Space"] = "autocomplete";</script>
 
     <p>Simple mode that tries to handle C-like languages as well as it
     can. Takes two configuration parameters: <code>keywords</code>, an

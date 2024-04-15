@@ -1,25 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
+<html>
 
 <title>CodeMirror: Perl mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="perl.js"></script>
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/perl/perl.js"></script>
 <style type="text/css">.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
-<div id=nav>
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+
+<div id="nav">
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/codemirror/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">Perl</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">Perl</a>
+  </li>
+</ul>
 </div>
 
 <article>
@@ -40,16 +54,14 @@ our $s2 = q(multi-
 	Example.
 =cut
 
-my $html=<<'HTML'
-<html>
+my $html=
 <title>hi!</title>
-</html>
+
 HTML
 
 print "first,".join(',', 'second', qq~third~);
 
-if($s1 =~ m[(?<!\s)(l.ne)\z]o) {
-	$h->{$1}=$jQuery.' predefined variables';
+if($s1 =~ m[(?{$1}=$jQuery.' predefined variables';
 	$s2 =~ s/\-line//ox;
 	$s1 =~ s[
 		  line ]
@@ -65,11 +77,11 @@ something...
 
 </textarea></div>
 
-    <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    <script>var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
         lineNumbers: true
-      });
-    </script>
+      });</script>
 
     <p><strong>MIME types defined:</strong> <code>text/x-perl</code>.</p>
   </article>
+
+</html>

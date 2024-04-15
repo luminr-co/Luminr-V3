@@ -1,35 +1,44 @@
-<!doctype html>
-
 <title>CodeMirror: troff mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
 
-<link rel=stylesheet href=../../lib/codemirror.css>
-<script src=../../lib/codemirror.js></script>
-<script src="../../addon/edit/matchbrackets.js"></script>
-<script src=troff.js></script>
-<style type=text/css>
-  .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
-</style>
-<div id=nav>
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/addon/edit/matchbrackets.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/troff/troff.js"></script>
+<style type="text/css">.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
+
+
+<div id="nav">
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/codemirror/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">troff</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">troff</a>
+  </li>
+</ul>
 </div>
 
 <article>
 <h2>troff</h2>
 
 
-<textarea id=code>
+<textarea id="code">
 '\" t
 .\"     Title: mkvextract
 .TH "MKVEXTRACT" "1" "2015\-02\-28" "MKVToolNix 7\&.7\&.0" "User Commands"
@@ -122,7 +131,7 @@ The latest version can always be found at
 \m[blue]\fBthe MKVToolNix homepage\fR\m[]\&\s-2\u[1]\d\s+2\&.
 .SH "AUTHOR"
 .PP
-\(co \fBMoritz Bunkus\fR <\&moritz@bunkus\&.org\&>
+\(co \fBMoritz Bunkus\fR 
 .RS 4
 Developer
 .RE
@@ -134,13 +143,11 @@ the MKVToolNix homepage
 .RE
 </textarea>
 
-<script>
-  var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+<script>var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
     mode: 'troff',
     lineNumbers: true,
     matchBrackets: false
-  });
-</script>
+  });</script>
 
 <p><strong>MIME types defined:</strong> <code>troff</code>.</p>
 </article>

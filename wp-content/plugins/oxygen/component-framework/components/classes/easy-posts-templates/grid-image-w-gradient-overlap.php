@@ -1,37 +1,4 @@
-<div class='oxy-post'>
+<div class="oxy-post">
   
-    <a class='oxy-post-image' href='<?php the_permalink(); ?>'>
-      <div class='oxy-post-image-fixed-ratio' style='background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);'>
-      </div>
-      
-      <div class='oxy-post-image-date-overlay'>
-		<?php the_time(get_option('date_format')); ?>
-	  </div>
-      
-	</a>
-  
-    <div class='oxy-post-wrap'>
-
-      <a class='oxy-post-title' href='<?php the_permalink(); ?>'><?php the_title(); ?></a>
-
-      <div class='oxy-post-meta'>
-
-          <div class='oxy-post-meta-author oxy-post-meta-item'>
-              <?php the_author(); ?>
-          </div>
-
-          <div class='oxy-post-meta-comments oxy-post-meta-item'>
-              <a href='<?php comments_link(); ?>'><?php comments_number(); ?></a>
-          </div>
-
-      </div>
-
-      <div class='oxy-post-content'>
-          <?php the_excerpt(); ?>
-      </div>
-
-      <a href='<?php the_permalink(); ?>' class='oxy-read-more'>Read More</a>
-      
-    </div>
-
+    <a class="oxy-post-image" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/oxygen/component-framework/components/classes/easy-posts-templates/<br />_<b>Fatal error</b>:  Uncaught Error: Call to undefined function the_permalink() in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/components/classes/easy-posts-templates/grid-image-w-gradient-overlap.php:3_Stack trace:_#0 {main}_  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/components/classes/easy-posts-templates/grid-image-w-gradient-overlap.php</b> on line <b>3</b><br />"></a>
 </div>

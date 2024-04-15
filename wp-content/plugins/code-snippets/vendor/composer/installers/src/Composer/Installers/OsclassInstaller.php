@@ -1,14 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-
-class OsclassInstaller extends BaseInstaller 
-{
-    
-    protected $locations = array(
-        'plugin' => 'oc-content/plugins/{$name}/',
-        'theme' => 'oc-content/themes/{$name}/',
-        'language' => 'oc-content/languages/{$name}/',
-    );
-    
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/OsclassInstaller.php:5
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/OsclassInstaller.php</b> on line <b>5</b><br>

@@ -1,33 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-class MayaInstaller extends BaseInstaller
-{
-    protected $locations = array(
-        'module' => 'modules/{$name}/',
-    );
-
-    /**
-     * Format package name.
-     *
-     * For package type maya-module, cut off a trailing '-module' if present.
-     *
-     */
-    public function inflectPackageVars($vars)
-    {
-        if ($vars['type'] === 'maya-module') {
-            return $this->inflectModuleVars($vars);
-        }
-
-        return $vars;
-    }
-
-    protected function inflectModuleVars($vars)
-    {
-        $vars['name'] = preg_replace('/-module$/', '', $vars['name']);
-        $vars['name'] = str_replace(array('-', '_'), ' ', $vars['name']);
-        $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
-
-        return $vars;
-    }
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/MayaInstaller.php:4
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/MayaInstaller.php</b> on line <b>4</b><br>

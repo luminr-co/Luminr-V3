@@ -1,26 +1,37 @@
-<!doctype html>
-
 <title>CodeMirror: Verilog/SystemVerilog mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="../../addon/edit/matchbrackets.js"></script>
-<script src="verilog.js"></script>
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/addon/edit/matchbrackets.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/verilog/verilog.js"></script>
 <style type="text/css">.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
-<div id=nav>
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+
+<div id="nav">
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/codemirror/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">Verilog/SystemVerilog</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">Verilog/SystemVerilog</a>
+  </li>
+</ul>
 </div>
 
 <article>
@@ -53,68 +64,26 @@ module block(
   always @(posedge clk or negedge rst_n) begin
 
     if (~rst_n) begin
-      data_out <= 8'b0;
-    end else begin
-      data_out <= data_in;
-    end
-    
-    if (~rst_n)
-      data_out <= 8'b0;
-    else
-      data_out <= data_in;
-    
-    if (~rst_n)
-      begin
-        data_out <= 8'b0;
-      end
-    else
-      begin
-        data_out <= data_in;
-      end
+      data_out </textarea></div>
 
-  end
-  
-endmodule
-
-// Class definition
-class test;
-
-  /**
-   * Sum two integers
-   */
-  function int sum(int a, int b);
-    int result = a + b;
-    string msg = $sformatf("%d + %d = %d", a, b, result);
-    $display(msg);
-    return result;
-  endfunction
-  
-  task delay(int num_cycles);
-    repeat(num_cycles) #1;
-  endtask
-  
-endclass
-
-</textarea></div>
-
-<script>
-  var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+<script>var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
     lineNumbers: true,
     matchBrackets: true,
     mode: {
       name: "verilog",
       noIndentKeywords: ["package"]
     }
-  });
-</script>
+  });</script>
 
 <p>
 Syntax highlighting and indentation for the Verilog and SystemVerilog languages (IEEE 1800).
+</p>
 <h2>Configuration options:</h2>
   <ul>
-    <li><strong>noIndentKeywords</strong> - List of keywords which should not cause indentation to increase. E.g. ["package", "module"]. Default: None</li>
+    <li>
+<strong>noIndentKeywords</strong> - List of keywords which should not cause indentation to increase. E.g. ["package", "module"]. Default: None</li>
   </ul>
-</p>
+
 
 <p><strong>MIME types defined:</strong> <code>text/x-verilog</code> and <code>text/x-systemverilog</code>.</p>
 </article>

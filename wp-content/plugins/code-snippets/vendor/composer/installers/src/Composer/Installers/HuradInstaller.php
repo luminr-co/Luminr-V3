@@ -1,25 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-class HuradInstaller extends BaseInstaller
-{
-    protected $locations = array(
-        'plugin' => 'plugins/{$name}/',
-        'theme' => 'plugins/{$name}/',
-    );
-
-    /**
-     * Format package name to CamelCase
-     */
-    public function inflectPackageVars($vars)
-    {
-        $nameParts = explode('/', $vars['name']);
-        foreach ($nameParts as &$value) {
-            $value = strtolower(preg_replace('/(?<=\\w)([A-Z])/', '_\\1', $value));
-            $value = str_replace(array('-', '_'), ' ', $value);
-            $value = str_replace(' ', '', ucwords($value));
-        }
-        $vars['name'] = implode('/', $nameParts);
-        return $vars;
-    }
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/HuradInstaller.php:4
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/HuradInstaller.php</b> on line <b>4</b><br>

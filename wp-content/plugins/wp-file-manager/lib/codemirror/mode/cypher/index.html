@@ -1,31 +1,40 @@
-<!doctype html>
-
 <title>CodeMirror: Cypher Mode for CodeMirror</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
 
-<link rel="stylesheet" href="../../lib/codemirror.css" />
-<link rel="stylesheet" href="../../theme/neo.css" />
-<script src="../../lib/codemirror.js"></script>
-<script src="cypher.js"></script>
-<style>
-.CodeMirror {
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/neo.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/cypher/cypher.js"></script>
+<style>.CodeMirror {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-}
-        </style>
-<div id=nav>
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+}</style>
+
+
+<div id="nav">
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/codemirror/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">Cypher Mode for CodeMirror</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">Cypher Mode for CodeMirror</a>
+  </li>
+</ul>
 </div>
 
 <article>
@@ -39,10 +48,9 @@ ORDER BY COUNT(*) DESC , friend_of_friend.name
 </textarea>
             </form>
             <p><strong>MIME types defined:</strong> 
-            <code><a href="?mime=application/x-cypher-query">application/x-cypher-query</a></code>
+            <code><a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/cypher/index.html?mime=application%2Fx-cypher-query">application/x-cypher-query</a></code>
         </p>
-<script>
-window.onload = function() {
+<script>window.onload = function() {
   var mime = 'application/x-cypher-query';
   // get mime type
   if (window.location.href.indexOf('mime=') > -1) {
@@ -57,7 +65,6 @@ window.onload = function() {
     autofocus: true,
     theme: 'neo'
   });
-};
-</script>
+};</script>
 
 </article>

@@ -1,6 +1,5 @@
 <div class="oxygen-sidebar-code-editor-wrap oxygen-sidebar-stylesheet-editor-wrap">
-  <script>
-	if (typeof($scope)!=="undefined") {
+  <script>if (typeof($scope)!=="undefined") {
 		window.currentCMWrap = new window.OxyCM.Compartment()
 		window.currentCMTheme = new window.OxyCM.Compartment()
 		window.currentCMEditor = new OxyCM.EditorView({
@@ -19,18 +18,15 @@
 		window.currentCMEditor.contentDOM.addEventListener('blur', function(){
 			$scope.iframeScope.updateStylesheetCSS(window.currentCMEditor.state.doc.toString());
 		})
-	}
-	</script>
+	}</script>
   <div id="oxy-style-sheets-cm6" class="oxy-code-cm6"></div>
   <div class="oxygen-code-error-container"></div>
 </div>
 
 <div class="oxygen-control-row oxygen-control-row-bottom-bar oxygen-control-row-bottom-bar-code-editor">
-  <?php global $oxygen_toolbar; 
-    $oxygen_toolbar->codemirror_theme_chooser(); ?>  
-  <a href="#" class="oxygen-code-editor-expand"
-    data-collapse="<?php _e("Collapse Editor", "oxygen"); ?>" data-expand="<?php _e("Expand Editor", "oxygen"); ?>"
-    ng-click="toggleSidebar()">
-    <?php _e("Expand Editor", "oxygen"); ?>
-  </a>
+  <br>
+<b>Fatal error</b>:  Uncaught Error: Call to a member function codemirror_theme_chooser() on null in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/style-sheet.view.php:30
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/style-sheet.view.php</b> on line <b>30</b><br>
 </div>

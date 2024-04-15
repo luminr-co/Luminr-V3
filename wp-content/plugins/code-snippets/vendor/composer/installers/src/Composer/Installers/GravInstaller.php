@@ -1,30 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-class GravInstaller extends BaseInstaller
-{
-    protected $locations = array(
-        'plugin' => 'user/plugins/{$name}/',
-        'theme'  => 'user/themes/{$name}/',
-    );
-
-    /**
-     * Format package name
-     *
-     * @param array $vars
-     *
-     * @return array
-     */
-    public function inflectPackageVars($vars)
-    {
-        $restrictedWords = implode('|', array_keys($this->locations));
-
-        $vars['name'] = strtolower($vars['name']);
-        $vars['name'] = preg_replace('/^(?:grav-)?(?:(?:'.$restrictedWords.')-)?(.*?)(?:-(?:'.$restrictedWords.'))?$/ui',
-            '$1',
-            $vars['name']
-        );
-
-        return $vars;
-    }
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/GravInstaller.php:4
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/GravInstaller.php</b> on line <b>4</b><br>

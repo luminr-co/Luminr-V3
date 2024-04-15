@@ -1,7 +1,7 @@
 				@font-face {
 					font-family: 'switzer';
-					src: url('/wp-content/uploads/useanyfont/6308Switzer.woff2') format('woff2'),
-						url('/wp-content/uploads/useanyfont/6308Switzer.woff') format('woff');
+					src: url('https://luminr-co.github.io/Luminr-V3/wp-content/uploads/useanyfont/6308Switzer.woff2') format('woff2'),
+						url('https://luminr-co.github.io/Luminr-V3/wp-content/uploads/useanyfont/6308Switzer.woff') format('woff');
 					  font-display: auto;
 				}
 

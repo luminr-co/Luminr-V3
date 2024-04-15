@@ -1,29 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-use Composer\Package\PackageInterface;
-
-class ExpressionEngineInstaller extends BaseInstaller
-{
-
-    protected $locations = array();
-
-    private $ee2Locations = array(
-        'addon'   => 'system/expressionengine/third_party/{$name}/',
-        'theme'   => 'themes/third_party/{$name}/',
-    );
-
-    private $ee3Locations = array(
-        'addon'   => 'system/user/addons/{$name}/',
-        'theme'   => 'themes/user/{$name}/',
-    );
-
-    public function getInstallPath(PackageInterface $package, $frameworkType = '')
-    {
-
-        $version = "{$frameworkType}Locations";
-        $this->locations = $this->$version;
-
-        return parent::getInstallPath($package, $frameworkType);
-    }
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/ExpressionEngineInstaller.php:6
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/ExpressionEngineInstaller.php</b> on line <b>6</b><br>

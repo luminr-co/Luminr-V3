@@ -1,26 +1,37 @@
-<!doctype html>
-
 <title>CodeMirror: Smarty mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="../xml/xml.js"></script>
-<script src="smarty.js"></script>
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/xml/xml.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/smarty/smarty.js"></script>
 <style type="text/css">.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
-<div id=nav>
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+
+<div id="nav">
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/codemirror/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">Smarty</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">Smarty</a>
+  </li>
+</ul>
 </div>
 
 <article>
@@ -52,11 +63,14 @@
 <p>Several configuration parameters are supported:</p>
 
 <ul>
-  <li><code>leftDelimiter</code> and <code>rightDelimiter</code>,
+  <li>
+<code>leftDelimiter</code> and <code>rightDelimiter</code>,
   which should be strings that determine where the Smarty syntax
   starts and ends.</li>
-  <li><code>version</code>, which should be 2 or 3.</li>
-  <li><code>baseMode</code>, which can be a mode spec
+  <li>
+<code>version</code>, which should be 2 or 3.</li>
+  <li>
+<code>baseMode</code>, which can be a mode spec
   like <code>"text/html"</code> to set a different background mode.</li>
 </ul>
 
@@ -91,11 +105,9 @@
 <textarea id="code3" name="code3">
 Nested tags {$foo={counter one=1 two={inception}}+3} are now valid in Smarty 3.
 
-<script>
-function test() {
+<script>function test() {
   console.log("Smarty 3 permits single curly braces followed by whitespace to NOT slip into Smarty mode.");
-}
-</script>
+}</script>
 
 {assign var=foo value=[1,2,3]}
 {assign var=foo value=['y'=>'yellow','b'=>'blue']}
@@ -116,8 +128,7 @@ Smarty "dot" syntax (note: embedded {} are used to address ambiguities):
 
 {$object->method1($x)->method2($y)}</textarea>
 
-<script>
-var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+<script>var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   mode: "smarty"
 });
@@ -132,7 +143,6 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code2"), {
 var editor = CodeMirror.fromTextArea(document.getElementById("code3"), {
   lineNumbers: true,
   mode: {name: "smarty", version: 3, baseMode: "text/html"}
-});
-</script>
+});</script>
 
 </article>

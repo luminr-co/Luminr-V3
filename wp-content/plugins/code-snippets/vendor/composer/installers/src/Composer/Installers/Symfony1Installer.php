@@ -1,26 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-/**
- * Plugin installer for symfony 1.x
- *
- * @author Jérôme Tamarelle <jerome@tamarelle.net>
- */
-class Symfony1Installer extends BaseInstaller
-{
-    protected $locations = array(
-        'plugin'    => 'plugins/{$name}/',
-    );
-
-    /**
-     * Format package name to CamelCase
-     */
-    public function inflectPackageVars($vars)
-    {
-        $vars['name'] = preg_replace_callback('/(-[a-z])/', function ($matches) {
-            return strtoupper($matches[0][1]);
-        }, $vars['name']);
-
-        return $vars;
-    }
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/Symfony1Installer.php:9
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/Symfony1Installer.php</b> on line <b>9</b><br>

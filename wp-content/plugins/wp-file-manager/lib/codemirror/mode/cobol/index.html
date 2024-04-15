@@ -1,55 +1,64 @@
-<!doctype html>
-
 <title>CodeMirror: COBOL mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<link rel="stylesheet" href="../../theme/neat.css">
-<link rel="stylesheet" href="../../theme/elegant.css">
-<link rel="stylesheet" href="../../theme/erlang-dark.css">
-<link rel="stylesheet" href="../../theme/night.css">
-<link rel="stylesheet" href="../../theme/monokai.css">
-<link rel="stylesheet" href="../../theme/cobalt.css">
-<link rel="stylesheet" href="../../theme/eclipse.css">
-<link rel="stylesheet" href="../../theme/rubyblue.css">
-<link rel="stylesheet" href="../../theme/lesser-dark.css">
-<link rel="stylesheet" href="../../theme/xq-dark.css">
-<link rel="stylesheet" href="../../theme/xq-light.css">
-<link rel="stylesheet" href="../../theme/ambiance.css">
-<link rel="stylesheet" href="../../theme/blackboard.css">
-<link rel="stylesheet" href="../../theme/vibrant-ink.css">
-<link rel="stylesheet" href="../../theme/solarized.css">
-<link rel="stylesheet" href="../../theme/twilight.css">
-<link rel="stylesheet" href="../../theme/midnight.css">
-<link rel="stylesheet" href="../../addon/dialog/dialog.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="../../addon/edit/matchbrackets.js"></script>
-<script src="cobol.js"></script>
-<script src="../../addon/selection/active-line.js"></script>
-<script src="../../addon/search/search.js"></script>
-<script src="../../addon/dialog/dialog.js"></script>
-<script src="../../addon/search/searchcursor.js"></script>
-<style>
-        .CodeMirror {
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/neat.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/elegant.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/erlang-dark.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/night.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/monokai.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/cobalt.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/eclipse.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/rubyblue.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/lesser-dark.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/xq-dark.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/xq-light.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/ambiance.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/blackboard.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/vibrant-ink.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/solarized.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/twilight.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/midnight.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/addon/dialog/dialog.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/addon/edit/matchbrackets.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/cobol/cobol.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/addon/selection/active-line.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/addon/search/search.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/addon/dialog/dialog.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/addon/search/searchcursor.js"></script>
+<style>.CodeMirror {
           border: 1px solid #eee;
           font-size : 20px;
           height : auto !important;
         }
-        .CodeMirror-activeline-background {background: #555555 !important;}
-    </style>
-<div id=nav>
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+        .CodeMirror-activeline-background {background: #555555 !important;}</style>
+
+
+<div id="nav">
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/codemirror/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">COBOL</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">COBOL</a>
+  </li>
+</ul>
 </div>
 
 <article>
@@ -80,7 +89,7 @@
           <option value="14px">14px</option>
           <option value="16px">16px</option>
           <option value="18px">18px</option>
-          <option value="20px" selected="selected">20px</option>
+          <option value="20px" selected>20px</option>
           <option value="24px">24px</option>
           <option value="26px">26px</option>
           <option value="28px">28px</option>
@@ -176,8 +185,7 @@
 000572
 000580
 </textarea>
-    <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    <script>var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
         lineNumbers: true,
         matchBrackets: true,
         mode: "text/x-cobol",
@@ -205,6 +213,5 @@
         } else {
             editor.setOption("extraKeys", {Tab: function(cm) { cm.replaceSelection("    ", "end"); }});
         }
-      }
-    </script>
+      }</script>
   </article>

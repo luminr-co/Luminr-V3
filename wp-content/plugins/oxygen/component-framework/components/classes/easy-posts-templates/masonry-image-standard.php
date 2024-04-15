@@ -1,31 +1,8 @@
-<div class='oxy-post'>
+<div class="oxy-post">
   
-    <?php 
-    if (has_post_thumbnail()) {
-      ?>
-	  <a href='<?php the_permalink(); ?>'><img src='<?php the_post_thumbnail_url(); ?>' class='oxy-post-image' /></a>
-	  <?php
-    }
-    ?>
-  
-	<a class='oxy-post-title' href='<?php the_permalink(); ?>'><?php the_title(); ?></a>
-
-	<div class='oxy-post-meta'>
-
-		<div class='oxy-post-meta-author oxy-post-meta-item'>
-			<?php the_author(); ?>
-		</div>
-
-		<div class='oxy-post-meta-comments oxy-post-meta-item'>
-			<a href='<?php comments_link(); ?>'><?php comments_number(); ?></a>
-		</div>
-
-	</div>
-
-	<div class='oxy-post-content'>
-		<?php the_excerpt(); ?>
-	</div>
-
-	<a href='<?php the_permalink(); ?>' class='oxy-read-more'>Read More</a>
-
+    <br>
+<b>Fatal error</b>:  Uncaught Error: Call to undefined function has_post_thumbnail() in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/components/classes/easy-posts-templates/masonry-image-standard.php:4
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/components/classes/easy-posts-templates/masonry-image-standard.php</b> on line <b>4</b><br>
 </div>

@@ -1,32 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-class CockpitInstaller extends BaseInstaller
-{
-    protected $locations = array(
-        'module' => 'cockpit/modules/addons/{$name}/',
-    );
-
-    /**
-     * Format module name.
-     *
-     * Strip `module-` prefix from package name.
-     *
-     * {@inheritDoc}
-     */
-    public function inflectPackageVars($vars)
-    {
-        if ($vars['type'] == 'cockpit-module') {
-            return $this->inflectModuleVars($vars);
-        }
-
-        return $vars;
-    }
-
-    public function inflectModuleVars($vars)
-    {
-        $vars['name'] = ucfirst(preg_replace('/cockpit-/i', '', $vars['name']));
-
-        return $vars;
-    }
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/CockpitInstaller.php:4
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/CockpitInstaller.php</b> on line <b>4</b><br>

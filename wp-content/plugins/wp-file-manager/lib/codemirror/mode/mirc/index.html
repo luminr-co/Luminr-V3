@@ -1,26 +1,37 @@
-<!doctype html>
-
 <title>CodeMirror: mIRC mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<link rel="stylesheet" href="../../theme/twilight.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="mirc.js"></script>
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/theme/twilight.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/mirc/mirc.js"></script>
 <style>.CodeMirror {border: 1px solid black;}</style>
-<div id=nav>
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+
+<div id="nav">
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/codemirror/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">mIRC</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">mIRC</a>
+  </li>
+</ul>
 </div>
 
 <article>
@@ -34,7 +45,7 @@ alias -l JoinDisplay { return 1 }
 ;Change MaxNicks, below, to the number of nicknames you want to store for each hostmask. I wouldn't go over 400 with this ;/
 alias -l MaxNicks { return 20 }
 ;Change AKALogo, below, To the text you want displayed before each AKA result.
-alias -l AKALogo { return 06 05A06K07A 06 }
+alias -l AKALogo { return 06 05A06K07A 06 }
 ;**End Setup
 ;*****************************************************************************;
 On *:Join:#: {
@@ -45,43 +56,16 @@ On *:Join:#: {
 on *:Nick: { NickNamesAdd $newnick $+($network,$wildsite) $nick }
 alias -l NickNames.display {
   if ($gettok($hget(NickNames,$+($3,$4)),0,126) > 1) {
-    echo -g $2 $AKALogo $+(09,$1) $AKALogo 07 $mid($replace($hget(NickNames,$+($3,$4)),$chr(126),$chr(44)),2,-1)
+    echo -g $2 $AKALogo $+(09,$1) $AKALogo 07 $mid($replace($hget(NickNames,$+($3,$4)),$chr(126),$chr(44)),2,-1)
   }
 }
 alias -l NickNamesAdd {
   if ($hget(NickNames,$2)) {
     if (!$regex($hget(NickNames,$2),/~\Q $+ $replacecs($1,\E,\E\\E\Q) $+ \E~/i)) {
-      if ($gettok($hget(NickNames,$2),0,126) <= $MaxNicks) {
-        hadd NickNames $2 $+($hget(NickNames,$2),$1,~)
-      }
-      else {
-        hadd NickNames $2 $+($mid($hget(NickNames,$2),$pos($hget(NickNames,$2),~,2)),$1,~)
-      }
-    }
-  }
-  else {
-    hadd -m NickNames $2 $+(~,$1,~,$iif($3,$+($3,~)))
-  }
-}
-alias -l Fix.All.MindUser {
-  var %Fix.Count = $hfind(NickNames,/[^~]+[0-9]{4}~/,0,r).data
-  while (%Fix.Count) {
-    if ($Fix.MindUser($hget(NickNames,$hfind(NickNames,/[^~]+[0-9]{4}~/,%Fix.Count,r).data))) {
-      echo -ag Record %Fix.Count - $v1 - Was Cleaned
-      hadd NickNames $hfind(NickNames,/[^~]+[0-9]{4}~/,%Fix.Count,r).data $v1
-    }
-    dec %Fix.Count
-  }
-}
-alias -l Fix.MindUser { return $regsubex($1,/[^~]+[0-9]{4}~/g,$null) }
-menu nicklist,query {
-  -
-  .AKA
-  ..Check $$1: {
-    if ($gettok($hget(NickNames,$+($network,$address($1,2))),0,126) > 1) {
+      if ($gettok($hget(NickNames,$2),0,126)  1) {
       NickNames.display $1 $active $network $address($1,2)
     }
-    else { echo -ag $AKALogo $+(09,$1) 07has not been known by any other nicknames while I have been watching. }
+    else { echo -ag $AKALogo $+(09,$1) 07has not been known by any other nicknames while I have been watching. }
   }
   ..Cleanup $$1:hadd NickNames $+($network,$address($1,2)) $fix.minduser($hget(NickNames,$+($network,$address($1,2))))
   ..Clear $$1:hadd NickNames $+($network,$address($1,2)) $+(~,$1,~)
@@ -120,7 +104,7 @@ On *:Dialog:Aka_Search:Sclick:2,7,9: {
     }
     did -c $dname 6 1
   }
-  elseif ($did == 7) && ($did($dname,6).seltext) { echo -ga $AKALogo 07 $mid($replace($hget(NickNames,$v1),$chr(126),$chr(44)),2,-1) }
+  elseif ($did == 7) && ($did($dname,6).seltext) { echo -ga $AKALogo 07 $mid($replace($hget(NickNames,$v1),$chr(126),$chr(44)),2,-1) }
   elseif ($did == 9) && ($did($dname,6).seltext) { clipboard $mid($v1,$pos($v1,*,1)) }
 }
 On *:Start:{
@@ -145,15 +129,13 @@ Raw 315:*: {
 }
 
 </textarea></form>
-    <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    <script>var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
         theme: "twilight",
         lineNumbers: true,
         matchBrackets: true,
         indentUnit: 4,
         mode: "text/mirc"
-      });
-    </script>
+      });</script>
 
     <p><strong>MIME types defined:</strong> <code>text/mirc</code>.</p>
 

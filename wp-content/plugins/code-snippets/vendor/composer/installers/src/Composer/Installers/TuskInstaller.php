@@ -1,14 +1,5 @@
-<?php
-    namespace Composer\Installers;
-    /**
-     * Composer installer for 3rd party Tusk utilities
-     * @author Drew Ewing <drew@phenocode.com>
-     */
-    class TuskInstaller extends BaseInstaller
-    {
-        protected $locations = array(
-            'task'    => '.tusk/tasks/{$name}/',
-            'command' => '.tusk/commands/{$name}/',
-            'asset'   => 'assets/tusk/{$name}/',
-        );
-    }
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/TuskInstaller.php:7
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/TuskInstaller.php</b> on line <b>7</b><br>

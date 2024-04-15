@@ -1,25 +1,36 @@
-<!doctype html>
-
 <title>CodeMirror: CoffeeScript mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="coffeescript.js"></script>
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/coffeescript/coffeescript.js"></script>
 <style>.CodeMirror {border-top: 1px solid silver; border-bottom: 1px solid silver;}</style>
-<div id=nav>
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+
+<div id="nav">
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/codemirror/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">CoffeeScript</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">CoffeeScript</a>
+  </li>
+</ul>
 </div>
 
 <article>
@@ -253,17 +264,12 @@ _.min = (obj, iterator, context) ->
   result = computed: Infinity
   _.each obj, (value, index, list) ->
     computed = if iterator then iterator.call(context, value, index, list) else value
-    computed < result.computed and (result = {value: value, computed: computed})
-  result.value
-
-
-# Sort the object's values by a criterion produced by an iterator.
-_.sortBy = (obj, iterator, context) ->
+    computed 
   _.pluck(((_.map obj, (value, index, list) ->
     {value: value, criteria: iterator.call(context, value, index, list)}
   ).sort((left, right) ->
     a = left.criteria; b = right.criteria
-    if a < b then -1 else if a > b then 1 else 0
+    if a  b then 1 else 0
   )), 'value')
 
 
@@ -273,14 +279,8 @@ _.sortedIndex = (array, obj, iterator) ->
   iterator ||= _.identity
   low = 0
   high = array.length
-  while low < high
-    mid = (low + high) >> 1
-    if iterator(array[mid]) < iterator(obj) then low = mid + 1 else high = mid
-  low
-
-
-# Convert anything iterable into a real, live array.
-_.toArray = (iterable) ->
+  while low > 1
+    if iterator(array[mid]) 
   return [] if (!iterable)
   return iterable.toArray() if (iterable.toArray)
   return iterable if (_.isArray(iterable))
@@ -386,16 +386,7 @@ _.lastIndexOf = (array, item) ->
 # [the native Python **range** function](http://docs.python.org/library/functions.html#range).
 _.range = (start, stop, step) ->
   a = arguments
-  solo = a.length <= 1
-  i = start = if solo then 0 else a[0]
-  stop = if solo then a[0] else a[1]
-  step = a[2] or 1
-  len = Math.ceil((stop - start) / step)
-  return [] if len <= 0
-  range = new Array len
-  idx = 0
-  loop
-    return range if (if step > 0 then i - stop else stop - i) >= 0
+  solo = a.length  0 then i - stop else stop - i) >= 0
     range[idx] = i
     idx++
     i+= step
@@ -633,9 +624,8 @@ _.uniqueId = (prefix) ->
 # By default, Underscore uses **ERB**-style template delimiters, change the
 # following template settings to use alternative delimiters.
 _.templateSettings = {
-  start: '<%'
-  end: '%>'
-  interpolate: /<%=(.+?)%>/g
+  start: '<% end:>'
+  interpolate: /<%>/g
 }
 
 
@@ -728,10 +718,8 @@ wrapper::chain = ->
 
 # Extracts the result from a wrapped and chained object.
 wrapper::value = -> this._wrapped
-</textarea></form>
-    <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {});
-    </script>
+</%></%></textarea></form>
+    <script>var editor = CodeMirror.fromTextArea(document.getElementById("code"), {});</script>
 
     <p><strong>MIME types defined:</strong> <code>text/x-coffeescript</code>.</p>
 

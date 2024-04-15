@@ -1,16 +1,5 @@
-<?php
-if ( ! oxygen_vsb_current_user_can_access() ) {
-    die ( 'Security check' );
-}
-
-global $oxy_ajax_post_id;
-$oxy_ajax_post_id = intval($_REQUEST['post_id']);
-
-$result = oxygen_vsb_cache_page_css(intval( $_REQUEST['post_id'] ));
-if ($result) {
-    $message = __("CSS cache generated successfully.","oxygen");
-}
-else {
-    $message = __("CSS cache not generated.","oxygen");
-}
-echo "<div>" . $message . " Post ID: " . intval($_REQUEST['post_id'])." - " . get_the_title(intval($_REQUEST['post_id'])) . "</div>";
+<br>
+<b>Fatal error</b>:  Uncaught Error: Call to undefined function oxygen_vsb_current_user_can_access() in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/includes/cache-template.php:2
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/includes/cache-template.php</b> on line <b>2</b><br>

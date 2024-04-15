@@ -1,27 +1,5 @@
-<?php
-
-namespace Composer\Installers;
-
-use Composer\Composer;
-use Composer\IO\IOInterface;
-use Composer\Plugin\PluginInterface;
-
-class Plugin implements PluginInterface
-{
-    private $installer;
-
-    public function activate(Composer $composer, IOInterface $io)
-    {
-        $this->installer = new Installer($io, $composer);
-        $composer->getInstallationManager()->addInstaller($this->installer);
-    }
-
-    public function deactivate(Composer $composer, IOInterface $io)
-    {
-        $composer->getInstallationManager()->removeInstaller($this->installer);
-    }
-
-    public function uninstall(Composer $composer, IOInterface $io)
-    {
-    }
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Interface &quot;Composer\Plugin\PluginInterface&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/Plugin.php:9
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/Plugin.php</b> on line <b>9</b><br>

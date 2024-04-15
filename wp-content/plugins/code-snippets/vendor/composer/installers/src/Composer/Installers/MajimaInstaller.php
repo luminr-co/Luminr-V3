@@ -1,37 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-/**
- * Plugin/theme installer for majima
- * @author David Neustadt
- */
-class MajimaInstaller extends BaseInstaller
-{
-    protected $locations = array(
-        'plugin' => 'plugins/{$name}/',
-    );
-
-    /**
-     * Transforms the names
-     * @param  array $vars
-     * @return array
-     */
-    public function inflectPackageVars($vars)
-    {
-        return $this->correctPluginName($vars);
-    }
-
-    /**
-     * Change hyphenated names to camelcase
-     * @param  array $vars
-     * @return array
-     */
-    private function correctPluginName($vars)
-    {
-        $camelCasedName = preg_replace_callback('/(-[a-z])/', function ($matches) {
-            return strtoupper($matches[0][1]);
-        }, $vars['name']);
-        $vars['name'] = ucfirst($camelCasedName);
-        return $vars;
-    }
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/MajimaInstaller.php:8
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/MajimaInstaller.php</b> on line <b>8</b><br>

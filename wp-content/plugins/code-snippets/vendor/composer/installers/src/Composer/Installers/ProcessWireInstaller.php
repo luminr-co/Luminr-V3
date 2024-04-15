@@ -1,22 +1,5 @@
-<?php
-
-namespace Composer\Installers;
-
-class ProcessWireInstaller extends BaseInstaller
-{
-    protected $locations = array(
-        'module'  => 'site/modules/{$name}/',
-    );
-
-    /**
-     * Format package name to CamelCase
-     */
-    public function inflectPackageVars($vars)
-    {
-        $vars['name'] = strtolower(preg_replace('/(?<=\\w)([A-Z])/', '_\\1', $vars['name']));
-        $vars['name'] = str_replace(array('-', '_'), ' ', $vars['name']);
-        $vars['name'] = str_replace(' ', '', ucwords($vars['name']));
-
-        return $vars;
-    }
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/ProcessWireInstaller.php:5
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/ProcessWireInstaller.php</b> on line <b>5</b><br>

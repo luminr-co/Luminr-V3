@@ -1,29 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-class PlentymarketsInstaller extends BaseInstaller
-{
-    protected $locations = array(
-        'plugin'   => '{$name}/'
-    );
-
-    /**
-     * Remove hyphen, "plugin" and format to camelcase
-     * @param array $vars
-     *
-     * @return array
-     */
-    public function inflectPackageVars($vars)
-    {
-        $vars['name'] = explode("-", $vars['name']);
-        foreach ($vars['name'] as $key => $name) {
-            $vars['name'][$key] = ucfirst($vars['name'][$key]);
-            if (strcasecmp($name, "Plugin") == 0) {
-                unset($vars['name'][$key]);
-            }
-        }
-        $vars['name'] = implode("",$vars['name']);
-
-        return $vars;
-    }
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/PlentymarketsInstaller.php:4
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/PlentymarketsInstaller.php</b> on line <b>4</b><br>

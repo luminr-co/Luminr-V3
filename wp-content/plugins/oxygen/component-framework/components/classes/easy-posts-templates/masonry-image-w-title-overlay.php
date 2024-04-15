@@ -1,9 +1,1 @@
-<a class='oxy-post' href='<?php the_permalink(); ?>'>
-  <div class='oxy-post-background'>
-	  <img src='<?php the_post_thumbnail_url(); ?>' class='oxy-post-image' />  
-  </div>
-  
-    <div class='oxy-post-overlay'>
-      <h2 class='oxy-post-title'><?php the_title(); ?></h2>
-    </div>
-</a>
+<a class="oxy-post" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/oxygen/component-framework/components/classes/easy-posts-templates/<br />_<b>Fatal error</b>:  Uncaught Error: Call to undefined function the_permalink() in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/components/classes/easy-posts-templates/masonry-image-w-title-overlay.php:1_Stack trace:_#0 {main}_  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/components/classes/easy-posts-templates/masonry-image-w-title-overlay.php</b> on line <b>1</b><br />"></a>

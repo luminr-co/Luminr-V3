@@ -1,16 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-/**
- * Extension installer for TYPO3 CMS
- *
- * @deprecated since 1.0.25, use https://packagist.org/packages/typo3/cms-composer-installers instead
- *
- * @author Sascha Egerer <sascha.egerer@dkd.de>
- */
-class TYPO3CmsInstaller extends BaseInstaller
-{
-    protected $locations = array(
-        'extension'   => 'typo3conf/ext/{$name}/',
-    );
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/TYPO3CmsInstaller.php:11
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/TYPO3CmsInstaller.php</b> on line <b>11</b><br>

@@ -1,26 +1,37 @@
-<!doctype html>
-
 <title>CodeMirror: Groovy mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="../../addon/edit/matchbrackets.js"></script>
-<script src="groovy.js"></script>
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/addon/edit/matchbrackets.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/groovy/groovy.js"></script>
 <style>.CodeMirror {border-top: 1px solid #500; border-bottom: 1px solid #500;}</style>
-<div id=nav>
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+
+<div id="nav">
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/codemirror/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">Groovy</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">Groovy</a>
+  </li>
+</ul>
 </div>
 
 <article>
@@ -34,37 +45,7 @@ new File( 'd:\\scripts' ).eachFileMatch(p) {f ->
   f.eachLine {
     // condition to detect an import instruction
     ln -> if ( ln =~ '^import .*' ) {
-      imports << "${ln - 'import '}"
-    }
-  }
-  // print thmen
-  if ( ! imports.empty ) {
-    println f
-    imports.each{ println "   $it" }
-  }
-}
-
-/* Coin changer demo code from http://groovy.codehaus.org */
-
-enum UsCoin {
-  quarter(25), dime(10), nickel(5), penny(1)
-  UsCoin(v) { value = v }
-  final value
-}
-
-enum OzzieCoin {
-  fifty(50), twenty(20), ten(10), five(5)
-  OzzieCoin(v) { value = v }
-  final value
-}
-
-def plural(word, count) {
-  if (count == 1) return word
-  word[-1] == 'y' ? word[0..-2] + "ies" : word + "s"
-}
-
-def change(currency, amount) {
-  currency.values().inject([]){ list, coin ->
+      imports 
      int count = amount / coin.value
      amount = amount % coin.value
      list += "$count ${plural(coin.toString(), count)}"
@@ -72,13 +53,11 @@ def change(currency, amount) {
 }
 </textarea></form>
 
-    <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    <script>var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
         lineNumbers: true,
         matchBrackets: true,
         mode: "text/x-groovy"
-      });
-    </script>
+      });</script>
 
     <p><strong>MIME types defined:</strong> <code>text/x-groovy</code></p>
   </article>

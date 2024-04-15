@@ -1,15 +1,13 @@
 <div id="oxygen-sidebar-code-editor-wrap" class="oxygen-sidebar-code-editor-wrap">
 
-    <script>
-        window.currentCMWrap = new window.OxyCM.Compartment()
+    <script>window.currentCMWrap = new window.OxyCM.Compartment()
         window.currentCMTheme = new window.OxyCM.Compartment()
-	    window.mixedCMEditors = [];
-    </script>
+	    window.mixedCMEditors = [];</script>
 
     <div class="oxy-code-editor-part">
-        <div class="oxy-code-editor-part-title">PHP <span ng-click="switchTab('advanced', 'code-php')">Expand</span></div>
-        <script>
-            if (typeof($scope)!=="undefined") {
+        <div class="oxy-code-editor-part-title">PHP <span ng-click="switchTab('advanced', 'code-php')">Expand</span>
+</div>
+        <script>if (typeof($scope)!=="undefined") {
                 window.mixedCMEditors['php'] = new OxyCM.EditorView({
                     state: OxyCM.EditorState.create({
                         extensions: [
@@ -27,15 +25,14 @@
                     $scope.iframeScope.setOptionModel('code-php',window.mixedCMEditors['php'].state.doc.toString());
                     $scope.iframeScope.applyCodeBlockPHP();
                 })
-            }
-        </script>
+            }</script>
         <div id="oxy-mixed-code-php-cm6" class="oxy-code-editor-wrap"></div>
     </div>
 
     <div class="oxy-code-editor-part">
-        <div class="oxy-code-editor-part-title">CSS <span ng-click="switchTab('advanced', 'code-css')">Expand</span></div>
-        <script>
-            if (typeof($scope)!=="undefined") {
+        <div class="oxy-code-editor-part-title">CSS <span ng-click="switchTab('advanced', 'code-css')">Expand</span>
+</div>
+        <script>if (typeof($scope)!=="undefined") {
                 window.mixedCMEditors['css'] = new OxyCM.EditorView({
                     state: OxyCM.EditorState.create({
                         extensions: [
@@ -59,15 +56,14 @@
                     $scope.iframeScope.setOptionModel('code-css', window.mixedCMEditors['css'].state.doc.toString());
                     $scope.iframeScope.applyCodeBlockCSS();
                 })
-            }
-        </script>
+            }</script>
         <div id="oxy-mixed-code-css-cm6" class="oxy-code-editor-wrap"></div>
     </div>
   
     <div class="oxy-code-editor-part">
-        <div class="oxy-code-editor-part-title">JS <span ng-click="switchTab('advanced', 'code-js')">Expand</span></div>
-        <script>
-            if (typeof($scope)!=="undefined") {
+        <div class="oxy-code-editor-part-title">JS <span ng-click="switchTab('advanced', 'code-js')">Expand</span>
+</div>
+        <script>if (typeof($scope)!=="undefined") {
                 window.mixedCMEditors['js'] = new OxyCM.EditorView({
                     state: OxyCM.EditorState.create({
                         extensions: [
@@ -85,8 +81,7 @@
                     $scope.iframeScope.setOptionModel('code-js',window.mixedCMEditors['js'].state.doc.toString());
                     $scope.iframeScope.applyCodeBlockJS();
                 })
-            }
-        </script>
+            }</script>
         <div id="oxy-mixed-code-js-cm6" class="oxy-code-editor-wrap"></div>
     </div>
   
@@ -158,15 +153,9 @@
 </script>
 
 <div class="oxygen-control-row oxygen-control-row-bottom-bar oxygen-control-row-bottom-bar-code-editor">
-  <?php global $oxygen_toolbar; 
-    $oxygen_toolbar->codemirror_theme_chooser(); ?>  
-  <a href="#" class="oxygen-code-editor-apply"
-    ng-click="iframeScope.applyCodeBlockJS(); iframeScope.applyCodeBlockPHP(); iframeScope.applyCodeBlockCSS()">
-    <?php _e("Apply Code", "oxygen"); ?>
-  </a>
-  <a href="#" class="oxygen-code-editor-expand"
-    data-collapse="<?php _e("Collapse Editor", "oxygen"); ?>" data-expand="<?php _e("Expand Editor", "oxygen"); ?>"
-    ng-click="toggleSidebar()">
-    <?php _e("Expand Editor", "oxygen"); ?>
-  </a>
+  <br>
+<b>Fatal error</b>:  Uncaught Error: Call to a member function codemirror_theme_chooser() on null in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/code-mixed.view.php:162
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/code-mixed.view.php</b> on line <b>162</b><br>
 </div>

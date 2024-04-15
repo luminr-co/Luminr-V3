@@ -1,30 +1,5 @@
-<?php
-namespace Composer\Installers;
-
-/**
- * An installer to handle TAO extensions.
- */
-class TaoInstaller extends BaseInstaller
-{
-    const EXTRA_TAO_EXTENSION_NAME = 'tao-extension-name';
-
-    protected $locations = array(
-        'extension' => '{$name}'
-    );
-    
-    public function inflectPackageVars($vars)
-    {
-        $extra = $this->package->getExtra();
-
-        if (array_key_exists(self::EXTRA_TAO_EXTENSION_NAME, $extra)) {
-            $vars['name'] = $extra[self::EXTRA_TAO_EXTENSION_NAME];
-            return $vars;
-        }
-
-        $vars['name'] = str_replace('extension-', '', $vars['name']);
-        $vars['name'] = str_replace('-', ' ', $vars['name']);
-        $vars['name'] = lcfirst(str_replace(' ', '', ucwords($vars['name'])));
-
-        return $vars;
-    }
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Composer\Installers\BaseInstaller&quot; not found in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/TaoInstaller.php:7
+Stack trace:
+#0 {main}
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/code-snippets/vendor/composer/installers/src/Composer/Installers/TaoInstaller.php</b> on line <b>7</b><br>

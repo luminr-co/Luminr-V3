@@ -1,25 +1,36 @@
-<!doctype html>
-
 <title>CodeMirror: Textile mode</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/docs.css">
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
-<script src="../../lib/codemirror.js"></script>
-<script src="textile.js"></script>
+<link rel="stylesheet" href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.css">
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/lib/codemirror.js"></script>
+<script src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/textile/textile.js"></script>
 <style>.CodeMirror {background: #f8f8f8;}</style>
-<div id=nav>
-  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>
+
+
+<div id="nav">
+  <a href="http://codemirror.net/"><h1>CodeMirror</h1>
+<img id="logo" src="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/logo.png"></a>
 
   <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/marijnh/codemirror">Code</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/index.html">Home</a>
+    </li>
+<li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/doc/manual.html">Manual</a>
+    </li>
+<li>
+<a href="https://github.com/marijnh/codemirror">Code</a>
+  </li>
+</ul>
   <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class="active" href="#">Textile</a>
-  </ul>
+    <li>
+<a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/mode/index.html">Language modes</a>
+    </li>
+<li>
+<a class="active" href="#">Textile</a>
+  </li>
+</ul>
 </div>
 
 <article>
@@ -91,8 +102,7 @@ Layouts and phrase modifiers can be modified with various kinds of attributes: a
 
 h3. Alignment
 
-div<. left align
-div>. right align
+div<. left align div>. right align
 
 h3. CSS ID and class name
 
@@ -118,45 +128,7 @@ h2. Table
 |\2.         Cell spanning 2 columns                             |
 |/2.         Cell spanning 2 rows       |(cell-class). one       |
 |                                                two             |
-|>.                  Right aligned cell |<. Left aligned cell    |
-
-
-h3. A table with attributes:
-
-table(#prices).
-|Adults|$5|
-|Children|$2|
-
-
-h2. Code blocks
-
-bc.
-function factorial(n) {
-    if (n === 0) {
-        return 1;
-    }
-    return n * factorial(n - 1);
-}
-
-pre..
-                ,,,,,,
-            o#'9MMHb':'-,o,
-         .oH":HH$' "' ' -*R&o,
-        dMMM*""'`'      .oM"HM?.
-       ,MMM'          "HLbd< ?&H\
-      .:MH ."\          ` MM  MM&b
-     . "*H    -        &MMMMMMMMMH:
-     .    dboo        MMMMMMMMMMMM.
-     .   dMMMMMMb      *MMMMMMMMMP.
-     .    MMMMMMMP        *MMMMMP .
-          `#MMMMM           MM6P ,
-       '    `MMMP"           HM*`,
-        '    :MM             .- ,
-         '.   `#?..  .       ..'
-            -.   .         .-
-              ''-.oo,oo.-''
-
-\. _(9>
+|>.                  Right aligned cell |<. left aligned cell | h3. a table with attributes: |adults| |children| h2. code blocks bc. function factorial if return n pre.. o .oh dmmm .om .:mh . mm mm&b &mmmmmmmmmh: dboo mmmmmmmmmmmm. dmmmmmmb mmmmmmmp mm6p hm :mm .- .. _>
  \==_)
   -'=
 
@@ -176,16 +148,14 @@ Some block layouts are simply textile versions of HTML tags with the same name, 
   <p>Hello!</p>
 </section>
 
-</textarea></form>
-    <script>
-        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+</.></.></textarea></form>
+    <script>var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
             lineNumbers: true,
             mode: "text/x-textile"
-        });
-    </script>
+        });</script>
 
     <p><strong>MIME types defined:</strong> <code>text/x-textile</code>.</p>
 
-    <p><strong>Parsing/Highlighting Tests:</strong> <a href="../../test/index.html#textile_*">normal</a>,  <a href="../../test/index.html#verbose,textile_*">verbose</a>.</p>
+    <p><strong>Parsing/Highlighting Tests:</strong> <a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/test/index.html#textile_*">normal</a>,  <a href="https://luminr-co.github.io/Luminr-V3/wp-content/plugins/wp-file-manager/lib/codemirror/test/index.html#verbose,textile_*">verbose</a>.</p>
 
 </article>
