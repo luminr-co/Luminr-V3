@@ -19,6 +19,14 @@
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.5.2</generator>
+
+<image>
+	<url>https://luminr-co.github.io/Luminr-V3/wp-content/uploads/2024/04/Slice-1-150x150.png</url>
+	<title>Luminr</title>
+	<link>https://luminr-co.github.io/Luminr-V3/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
 	<item>
 		<title>Hello world!</title>
 		<link>https://luminr-co.github.io/Luminr-V3/hello-world/</link>
