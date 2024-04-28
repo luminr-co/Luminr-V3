@@ -1,0 +1,2 @@
+<br>
+<b>Fatal error</b>:  Trait &quot;MyThemeShop\Database\Escape&quot; not found in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/seo-by-rank-math/vendor/mythemeshop/wordpress-helpers/src/database/class-query-builder.php</b> on line <b>16</b><br>
