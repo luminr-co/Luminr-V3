@@ -852,3 +852,12 @@ padding: 10px 16px;
 }
 .oxy-superbox-secondary {
 }
+.sliderimage {
+ width:732px;
+}
+@media (max-width: 767px) {
+.sliderimage {
+ width:320px;
+}
+}
+
