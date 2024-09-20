@@ -383,7 +383,6 @@ CTFrontendBuilder.controller("ControllerAJAX", function($scope, $parentScope, $h
         if(jQuery('body').hasClass('ct_inner')) {
             params['ct_inner'] = true;
         }
-        
 
         // Send AJAX request
         $http({
@@ -1380,6 +1379,10 @@ CTFrontendBuilder.controller("ControllerAJAX", function($scope, $parentScope, $h
                 if(callback) {
                     callback(data['results'], holder, data['pagination']?data['pagination']:null);
                 }
+                if(data['error']) {
+                    var holderElement = $scope.getComponentById(holder.id);
+                    holderElement.html(data['error']).show();
+                }
             } else {
                 component.html('No data received');
             }
@@ -1552,6 +1555,45 @@ CTFrontendBuilder.controller("ControllerAJAX", function($scope, $parentScope, $h
             console.log(response.data, response.status);
         }).then(null, function(response) { 
             $scope.showErrorModal(response.status, 'Error occurred while rendering the component', response.statusText, response.config.url);
+        });
+    }
+
+    /**
+     * Get SVG Icon sets
+     * 
+     * @since 0.2.1
+     */
+
+    $scope.loadStylesheets = function() {
+
+        var params = {
+                action: 'oxy_get_style_sheets',
+                post_id : CtBuilderAjax.postId,
+                nonce : CtBuilderAjax.nonce,
+            };
+
+        // Send AJAX request
+        $http({
+            url : $scope.stripURLProtocol(CtBuilderAjax.ajaxUrl),
+            method : "POST",
+            params : params,
+            transformResponse : false,
+        })
+        .then(function(response) {
+            //console.log(data);
+            try {
+                var stylesheets = JSON.parse(response.data);
+                $scope.styleSheets = stylesheets;
+            } 
+            catch (err) {
+                console.log(data);console.log(err);
+                $scope.showErrorModal(0, 'Error occurred while loading Stylesheets');
+            }
+        })
+        .catch(function(response) {
+            console.log(response.data, response.status);
+        }).then(null, function(response) { 
+            $scope.showErrorModal(response.status, 'Error occurred while loading Stylesheets', response.statusText, response.config.url);
         });
     }
 
@@ -1765,9 +1807,18 @@ CTFrontendBuilder.controller("ControllerAJAX", function($scope, $parentScope, $h
                                 waitOxygenTree(counter);
                             }
                             else {
+                                
+                                if ($scope.fixUnits) {
+                                    $scope.updateAllComponentsCacheStyles();
+                                    // units will be fixed during CSS generation and correct CSS will be generated down below
+                                    $scope.classesCached = false;
+                                    $scope.outputCSSOptions();
+                                }
+
                                 // do necassary updates only after buildComponentsFromTree() is completed and tree is built
                                 $scope.classesCached = false;
                                 $scope.outputCSSOptions();
+                                
                                 // increment id
                                 $scope.component.id++;
                             }
@@ -1858,7 +1909,7 @@ CTFrontendBuilder.controller("ControllerAJAX", function($scope, $parentScope, $h
                 $scope.postsData[postId] = response;
             } 
             catch (err) {
-                console.log(data);console.log(err);
+                console.log(response);console.log(err);
                 $scope.showErrorModal(0, 'Failed to load post data. ID: '+postId, err);
             }
             $parentScope.hideLoadingOverlay("loadPostData()");
@@ -1868,6 +1919,67 @@ CTFrontendBuilder.controller("ControllerAJAX", function($scope, $parentScope, $h
             $parentScope.hideLoadingOverlay("loadPostData()");
         }).then(null, function(response) { 
             $scope.showErrorModal(response.status, 'Failed to load post data. ID: '+postId, response.statusText, response.config.url);
+        });
+    }
+
+
+    /**
+     * Load WP Post object
+     * 
+     * @since 0.2.3
+     * @author Ilya K.
+     */
+
+    $scope.loadAJAXVars = function(callback) {
+
+        $parentScope.showLoadingOverlay("loadAJAXVars()");
+
+        var params = {
+                action : 'oxy_load_ajax_vars',
+                post_id : CtBuilderAjax.postId,
+                nonce : CtBuilderAjax.nonce,
+                preview_post_id : $scope.template.postData.ID
+            };
+
+        // Send AJAX request
+        $http({
+            url : $scope.stripURLProtocol(CtBuilderAjax.permalink),
+            method : "POST",
+            params : params,
+            transformResponse : false,
+        })
+        .then(function(response) {
+            try {
+                response = JSON.parse(response.data);
+                if (response.adminURL) {
+                    response.adminURL = response.adminURL.replace(/&amp;/g, "&")
+                }
+                CtBuilderAjax = response;
+                $scope.ajaxVar = CtBuilderAjax;
+
+                window.parent.history.replaceState({id: response.postId}, null, response.builderLink);
+
+                if (response.builderLink.indexOf("ct_inner=true") > -1) {
+                    jQuery("body").addClass("ct_inner");
+                    jQuery('body', window.parent.document).addClass('ct_inner')
+                }
+                else {
+                    jQuery("body").removeClass("ct_inner");
+                    jQuery('body', window.parent.document).removeClass('ct_inner')
+                }
+                callback(response);
+            } 
+            catch (err) {
+                console.log(err);
+                $scope.showErrorModal(0, 'Failed to load post AJAX vars', err);
+            }
+            $parentScope.hideLoadingOverlay("loadAJAXVars()");
+        })
+        .catch(function(response) {
+            console.log(response);
+            $parentScope.hideLoadingOverlay("loadAJAXVars()");
+        }).then(null, function(response) { 
+            $scope.showErrorModal(response.status, 'Failed to load AJAX vars', response.statusText, response.config.url);
         });
     }
 
@@ -2357,6 +2469,40 @@ CTFrontendBuilder.controller("ControllerAJAX", function($scope, $parentScope, $h
         .catch(function(response) {
             console.log(response.data, response.status);
             jQuery('.oxygen-select-box-options', $parentScope.oxygenUIElement).css({opacity:'',pointerEvents:''});
+        });
+    }
+
+
+    /**
+     * Pass user input to autload suggestions for tags, catergories or other lists of options
+     * 
+     * @since 3.3
+     * @author Ilya K. 
+     */
+
+    $scope.loadEditingList = function() {
+
+        var url = CtBuilderAjax.ajaxUrl,
+            params = {
+                post_id: CtBuilderAjax.postId,
+                nonce: CtBuilderAjax.nonce,
+                action: 'oxy_load_editing_list',
+                query: $parentScope.currentlyEditingFilter,
+            };
+
+        // Send AJAX request
+        $http({
+            method: "POST",
+            url: $scope.stripURLProtocol(url),
+            params: params
+        })
+        .then(function(response) {
+            console.log(response)
+            $scope.editingList = response.data
+            $scope.currentPreview = response.data[0] ? response.data[0].post_title : "";
+        })
+        .catch(function(response) {
+            console.log(response)
         });
     }
 

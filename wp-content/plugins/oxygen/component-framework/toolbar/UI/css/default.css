@@ -3922,33 +3922,6 @@ because wow, this CSS is a nightmare.
 
 .ct-settings-button {
 }
-.ct-save-button {
-  border-left: none;
-  color: #fff;
-  background-color: rgba(45, 52, 58, 1);
-  background: linear-gradient(
-    to bottom,
-    rgba(116, 128, 156, 1) 0%,
-    rgba(83, 96, 127, 1) 100%
-  );
-  box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.2),
-    inset -1px -1px 1px 0px rgba(0, 0, 0, 0.2),
-    inset 1px 1px 6px 0px rgba(255, 255, 255, 0.2),
-    inset -1px -1px 8px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 1px 1px 2px 0px rgba(161, 174, 206, 0.28),
-    inset -1px -1px 1px 0px rgba(0, 0, 0, 0.2),
-    inset 1px 1px 6px 0px rgba(163, 173, 195, 0.38),
-    inset -1px -1px 8px 0px rgba(0, 0, 0, 0.2);
-}
-
-.ct-save-button:hover {
-  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.4);
-  background-image: linear-gradient(
-    to bottom,
-    rgb(133, 145, 173) 0%,
-    rgb(97, 111, 144) 100%
-  );
-}
 
 /* non-standard toolbar controls */
 
@@ -6032,7 +6005,7 @@ div.oxygen-data-dialog-bg {
 
 div.oxygen-data-dialog:not(#ct-modal-if-conditions) > div {
   overflow-y: auto;
-  max-height: calc(100% - 50px);
+  max-height: calc(100% - 69px);
 }
 
 div.oxygen-data-dialog#ct-modal-if-conditions > div.oxygen-control {
@@ -6123,7 +6096,7 @@ div.oxygen-data-dialog h1 {
   font-weight: var(--oxy-bold-font-weight);
   margin: 0;
   margin: -20px;
-  margin-bottom: 30px;
+  margin-bottom: 16px;
   background-color: var(--oxy-dark);
   padding: 10px 20px;
   font-size: var(--oxy-big-text-size);

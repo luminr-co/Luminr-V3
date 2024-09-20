@@ -247,6 +247,7 @@ CTCommonDirectives.directive("ctdynamicdata", function($compile, ctScopeService)
                 var template = '<div class="oxy-dynamicdata-popup-background"></div>'+
                         '<div id="ctdynamicdata-popup" class="oxygen-data-dialog'+(scope.noshadow?' ct-global-conditions-add-modal':'')+'">'+
                         '<h1>Insert Dynamic Data</h1>'+
+                        '<p style="font-size: 14px">Please <a style="color: var(--oxy-light-text)" target="_blank" href="https://oxygenbuilder.com/documentation/other/security/#filtering-dynamic-data">review this security information</a> if you plan to render untrusted data via Oxygen\’s dynamic data functions.</p>'+
                         '<div>';
 
                 if(CtBuilderAjax.freeVersion) {

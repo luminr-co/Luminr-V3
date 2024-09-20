@@ -575,13 +575,11 @@ CTFrontendBuilder.controller("ControllerMediaQueries", function($scope, $parentS
      * @return {string}
      */
 
-	$scope.getBreakpointValue = function(optionName, media, id) {
-
-        if (undefined===id) {
-            id = $scope.component.active.id;
-        }
+	$scope.getCurrentBreakpointValue = function(optionName, media) {
 
         if ($scope.isEditing("id")) {
+
+			id = $scope.component.active.id;
 
 			if (media=="default") {
 				if ( $scope.component.options[id][$scope.currentState] &&
@@ -637,6 +635,74 @@ CTFrontendBuilder.controller("ControllerMediaQueries", function($scope, $parentS
 		return "";
     }
 
+
+	/**
+     * Return property value for passed editing state, but for specific media breakpoint
+     *
+     * @since 4.0
+     * @return {string}
+     */
+
+	 $scope.getCustomBreakpointValue = function(optionName, media, options) {
+
+        if (options.id && options.state) {
+
+			if (media=="default") {
+				if ( $scope.component.options[options.id] &&
+					 $scope.component.options[options.id][options.state] &&
+					 $scope.component.options[options.id][options.state][optionName]) {
+					return $scope.component.options[options.id][options.state][optionName];
+				}
+			}
+            else if ( $scope.component.options[options.id] &&
+				 $scope.component.options[options.id]['media'] &&
+                 $scope.component.options[options.id]['media'][media] &&
+                 $scope.component.options[options.id]['media'][media][options.state] &&
+                 $scope.component.options[options.id]['media'][media][options.state][optionName]) {
+                return $scope.component.options[options.id]['media'][media][options.state][optionName];
+            }
+        }
+
+        if (options.class && options.state) {
+            
+			if (media=="default") {
+				if ( $scope.classes[options.class] &&
+					 $scope.classes[options.class][options.state] &&
+					 $scope.classes[options.class][options.state][optionName]) {
+					return $scope.classes[options.class][options.state][optionName];
+				}
+			}
+            else if ( $scope.classes[options.class] &&
+                 $scope.classes[options.class]['media'] &&
+                 $scope.classes[options.class]['media'][media] &&
+                 $scope.classes[options.class]['media'][media][options.state] &&
+                 $scope.classes[options.class]['media'][media][options.state][optionName]) {
+                return $scope.classes[options.class]['media'][media][options.state][optionName];
+            }
+        }
+
+        // editing custom selector
+        if (options.selector && options.state) {
+
+            if (media=="default") {
+				if ( $scope.customSelectors[options.selector] &&
+					 $scope.customSelectors[options.selector][options.state] &&
+					 $scope.customSelectors[options.selector][options.state][optionName]) {
+					return $scope.customSelectors[options.selector][options.state][optionName];
+				}
+			}
+            else if ( $scope.customSelectors[options.selector] &&
+                $scope.customSelectors[options.selector]['media'] &&
+                $scope.customSelectors[options.selector]['media'][media] &&
+                $scope.customSelectors[options.selector]['media'][media][options.state] &&
+                $scope.customSelectors[options.selector]['media'][media][options.state][optionName] ){
+                return $scope.customSelectors[options.selector]['media'][media][options.state][optionName];
+            }
+        }
+
+		return "";
+    }
+
 	
 	/**
      * Return property value for for closest bigger breakpoint for passed property
@@ -645,17 +711,11 @@ CTFrontendBuilder.controller("ControllerMediaQueries", function($scope, $parentS
      * @return {string}
      */
 
-	$scope.getClosestBreakpointValue = function(optionName, media, id) {
-
-		if (!$scope.isEditing("media")) {
+	$scope.getClosestBreakpointValue = function(optionName, media, customOptions) {
+		
+		if (!$scope.isEditing("media") && !customOptions) {
 			return "";
 		}
-
-		if (undefined===id) {
-            id = $scope.component.active.id;
-        }
-        
-		var componentName = $scope.component.active.name;
 		
 		if (undefined===media) {
             media = $scope.currentMedia;
@@ -664,52 +724,15 @@ CTFrontendBuilder.controller("ControllerMediaQueries", function($scope, $parentS
 		var breakpoints = $scope.sortedMediaList().reverse();
 		var found = false;
 		
-		if (optionName.indexOf("-unit") > 0) {
-			var unitlessOptionName = optionName.replace("-unit", "");
-
-			if (!$scope.isInherited(id, unitlessOptionName)) {
-				// section padding fallback to global settings
-				if (optionName.indexOf("container-padding") > -1) {
-					return $scope.globalSettings.sections[optionName];
-				}
-				return $scope.defaultOptions[componentName][optionName] || $scope.defaultOptions["all"][optionName]
-			}
-			else {
-				for(var key in breakpoints) { 
-					if (breakpoints.hasOwnProperty(key)) {
-						var currentMedia = breakpoints[key];
-
-						if (found) {
-							var value = $scope.getBreakpointValue(unitlessOptionName, currentMedia),
-								unit = $scope.getBreakpointValue(optionName, currentMedia);
-
-							if (value && unit) {
-								return unit;
-							}
-
-							if (value && !unit) {
-								// section padding fallback to global settings
-								if (optionName.indexOf("container-padding") > -1) {
-									return $scope.globalSettings.sections[optionName];
-								}
-								return $scope.defaultOptions[componentName][optionName] || $scope.defaultOptions["all"][optionName]
-							}
-						}
-		
-						if (currentMedia == media) {
-							found = true;
-						}
-					}
-				}
-			}
-		}
-
 		for(var key in breakpoints) { 
 			if (breakpoints.hasOwnProperty(key)) {
 				var currentMedia = breakpoints[key];
 
 				if (found) {
-					var value = $scope.getBreakpointValue(optionName, currentMedia);
+					var value = $scope.getCurrentBreakpointValue(optionName, currentMedia);
+					if (customOptions !== undefined) {
+						value = $scope.getCustomBreakpointValue(optionName, currentMedia, customOptions);
+					}
 					if (value) {
 						return value;
 					}
@@ -719,6 +742,11 @@ CTFrontendBuilder.controller("ControllerMediaQueries", function($scope, $parentS
 					found = true;
 				}
 			}
+		}
+
+		// section padding fallback to global settings
+		if (optionName.indexOf("-unit") > 0 && optionName.indexOf("container-padding") > -1) {
+			return $scope.globalSettings.sections[optionName];
 		}
 
 		return "";

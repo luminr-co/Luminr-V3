@@ -1844,7 +1844,9 @@ CTFrontendBuilder.controller("ControllerOptions", function($scope, $parentScope,
             $scope.findComponentItem($scope.componentsTree.children, id, $scope.updateTreeComponentOptions, component);
         }
 
-        $scope.unsavedChanges();
+        if (optionName!='globalConditionsResult'){
+            $scope.unsavedChanges();
+        }
 
         // refreshHard AOS object if any element AOS setting were updated
         if ( optionName !== undefined && optionName.indexOf('aos-') === 0 ) {
@@ -2058,7 +2060,7 @@ CTFrontendBuilder.controller("ControllerOptions", function($scope, $parentScope,
      * @return {Array} [key values pairs of CSS properties]
      */
 
-    $scope.getCSSOptions = function(id, stateName, customOptions, componentName) {
+    $scope.getCSSOptions = function(id, stateName, customOptions, componentName, breakPointName, breakpointOptions) {
         
         if (!$scope.defaultOptions[componentName]) {
             $scope.defaultOptions[componentName] = {};
@@ -2114,6 +2116,9 @@ CTFrontendBuilder.controller("ControllerOptions", function($scope, $parentScope,
                         name == 'container-padding-left'||
                         name == 'container-padding-right') {
                         var unit = ( options[name+'-unit'] ) ? options[name+'-unit'] : $scope.globalSettings.sections[name+'-unit'];
+                        if (!options[name+'-unit'] && breakPointName && breakpointOptions) {
+                            unit = ( $scope.getClosestBreakpointValue(name+'-unit', breakPointName, breakpointOptions) ) ? $scope.getClosestBreakpointValue(name+'-unit', breakPointName, breakpointOptions)  : $scope.defaultOptions[componentName][name+'-unit'];
+                        }
                         if ( options[name] ) {
                             options[name] += unit;
                         }
@@ -2129,6 +2134,9 @@ CTFrontendBuilder.controller("ControllerOptions", function($scope, $parentScope,
                         }
                         else {
                             var unit = ( options[name+'-unit'] ) ? options[name+'-unit'] : $scope.defaultOptions[componentName][name+'-unit'];
+                            if (!options[name+'-unit'] && breakPointName && breakpointOptions) {
+                                unit = ( $scope.getClosestBreakpointValue(name+'-unit', breakPointName, breakpointOptions) ) ? $scope.getClosestBreakpointValue(name+'-unit', breakPointName, breakpointOptions)  : $scope.defaultOptions[componentName][name+'-unit'];
+                            }
                             if ( options[name] ) {
                                 options[name] += unit;
                             }
@@ -2412,9 +2420,6 @@ CTFrontendBuilder.controller("ControllerOptions", function($scope, $parentScope,
 
         // Adjust viewport
         $parentScope.adjustViewportContainer();
-        
-        // Mark page as unsaved
-        $scope.unsavedChanges();
     }
     
     /**
@@ -2443,6 +2448,7 @@ CTFrontendBuilder.controller("ControllerOptions", function($scope, $parentScope,
         $scope.previousBreakPointsValues['page-width']['page'] = $scope.pageSettingsMeta['max-width'];
         
         $scope.pageSettingsUpdate();
+		$scope.unsavedChanges();
     }
     
     /**
@@ -2468,6 +2474,7 @@ CTFrontendBuilder.controller("ControllerOptions", function($scope, $parentScope,
         $scope.previousBreakPointsValues['page-width']['global'] = $scope.globalSettings['max-width'];
         
         $scope.pageSettingsUpdate();
+		$scope.unsavedChanges();
     }
     
     /**
@@ -3111,6 +3118,7 @@ CTFrontendBuilder.controller("ControllerOptions", function($scope, $parentScope,
                     // update page settings
                     $scope.pageSettings['max-width'] = options["page-width"];
                     $scope.pageSettingsUpdate();
+            		$scope.unsavedChanges();
                 }
             }
         }
@@ -3137,6 +3145,7 @@ CTFrontendBuilder.controller("ControllerOptions", function($scope, $parentScope,
             $scope.globalSettings["max-width"] = $scope.globalSettingsDefaults["max-width"];
 
             $scope.pageSettingsUpdate();
+		    $scope.unsavedChanges();
         }
     }
 

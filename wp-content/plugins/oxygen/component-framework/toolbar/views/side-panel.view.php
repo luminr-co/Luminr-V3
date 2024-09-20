@@ -1,4 +1,4 @@
-<div id="ct-sidepanel" class="ct-panel-elements-managers" ng-show="showSidePanel" ng-class="{'ct-sidepanel-show':showSidePanel}">
+<div id="ct-sidepanel" class="ct-panel-elements-managers" ng-show="showSidePanel" ng-class="{'ct-sidepanel-show':showSidePanel}" ng-click="disableContentEdit()">
 	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1">
 		<defs>
 			<symbol id="oxy-icon-cross" viewbox="0 0 32 32">
@@ -12,10 +12,10 @@
 		<div class="ct-tab-panel ct-dom-tree-tab ct-active" ng-show="isShowTab('sidePanel','DOMTree')">
 			<div class="oxygen-sidepanel-header-row">
 				<br>
-<b>Fatal error</b>:  Uncaught Error: Call to undefined function _e() in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/side-panel.view.php:14
+<b>Fatal error</b>:  Uncaught Error: Call to undefined function _e() in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/side-panel.view.php:15
 Stack trace:
 #0 {main}
-  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/side-panel.view.php</b> on line <b>14</b><br>
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/side-panel.view.php</b> on line <b>15</b><br>
 </div>
 </div>
 </div>

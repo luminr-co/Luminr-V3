@@ -1260,6 +1260,8 @@ CTFrontendBuilder.controller("ComponentsTree", function($scope, $parentScope, $t
             $scope.savePage(true);
         }, 1000 * 60 * 2);*/
 
+        $scope.allSaved();
+
         if(angular.element('body').hasClass('ct_inner')) {
 
             $scope.outerTemplateData['edit_link'] = tree.outerTemplateData['edit_link'];
@@ -1313,6 +1315,73 @@ CTFrontendBuilder.controller("ComponentsTree", function($scope, $parentScope, $t
                 $timeout.cancel(fixShortcodesTimeout);
             }, 5000, false);
         }
+    }
+
+    $scope.changePreview = function(post) {
+
+        if ($parentScope.oxygenUIElement.hasClass("oxygen-unsaved-changes")) {
+            if (!confirm("All unsaved changes will be lost")) return false; 
+        }
+
+        $scope.currentPreview = post.post_title;
+
+        // clear the design
+        var root = $scope.getComponentById(0);
+        root.empty();
+        root = null;
+
+        $scope.template.postData = {};
+        $scope.componentsTree = []
+
+        $scope.component = {
+
+            // currently active component
+            active : {  
+                id : 0,
+                name : 'root',
+                state : 'original', // element state like 'hover'
+                parent: {
+                    id : null,
+                    name : ""
+                }
+            },
+    
+            // components counter
+            id : 1,
+    
+            // all components options
+            options: {
+                0 : {
+                    'original' : {},
+                    'media' : {
+                        'original' : {}
+                    }
+                }
+            }
+        }
+
+        $scope.componentsClasses = [];
+        $scope.innerContentAdded = false;
+        $scope.innerContentRoot = false;
+
+        // Clear ID styles cache
+        $scope.cache.idCSS 			= "";
+	    $scope.cache.idStyles 		= {};
+
+        CtBuilderAjax.permalink = post.url;
+        $scope.ajaxVar = CtBuilderAjax;
+
+        $scope.loadAJAXVars(function(response){
+            if (response.templateTitle) {
+                $scope.currentPreview = response.templateTitle
+                $scope.showNoticeModal("<div>The post you tried to edit is rendered by a template without an Inner Content element, so you're editing the template instead. If you'd like to edit the post directly, add an Inner Content element to the template that renders it.</div>", "ct-notice")
+                //alert('changed')
+            }
+            $scope.loadComponentsTree(iframeScope.builderInit, response.postId)
+        });
+
+        $scope.selectedNodeType = null;
+        $scope.loadStylesheets();
     }
 
 

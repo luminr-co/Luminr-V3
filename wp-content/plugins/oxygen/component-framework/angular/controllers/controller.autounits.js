@@ -44,7 +44,7 @@ function autoUnitHandler( e ) {
     if( !units.length ) return;
 
     units.forEach( function(unit) {
-        if( target.value && target.value.replace(/\d*\.?\d*/g, '') == unit ) {
+        if( target.value && target.value.replace(/-?\d*\.?\d*/g, '') == unit ) {
             // If none, we need the acutual Angular option model unit to be ' ', not 'none'
             if( unit == "none" ) unit = ' ';
             replaceAndUpdateUnit( target, target.dataset.option, unit );

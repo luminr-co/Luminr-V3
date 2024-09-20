@@ -32,7 +32,8 @@
     <div class="oxy-code-editor-part">
         <div class="oxy-code-editor-part-title">CSS <span ng-click="switchTab('advanced', 'code-css')">Expand</span>
 </div>
-        <script>if (typeof($scope)!=="undefined") {
+        <script>var timeoutID;
+            if (typeof($scope)!=="undefined") {
                 window.mixedCMEditors['css'] = new OxyCM.EditorView({
                     state: OxyCM.EditorState.create({
                         extensions: [
@@ -43,8 +44,11 @@
                             window.currentCMTheme.of(OxyCM.modules[$scope.iframeScope.globalCodeMirrorTheme]),
                             OxyCM.EditorView.updateListener.of((v)=> {
                                 if(v.docChanged) {
-                                    $scope.iframeScope.debounce($scope.iframeScope.setOptionModel,1000)('code-css',window.mixedCMEditors['css'].state.doc.toString());
-                                    $scope.iframeScope.debounce($scope.iframeScope.applyCodeBlockCSS,1000)();
+                                    clearTimeout(timeoutID);
+                                    timeoutID = setTimeout( (event) => {
+                                        $scope.iframeScope.setOptionModel('code-css',window.mixedCMEditors['css'].state.doc.toString());
+                                        $scope.iframeScope.applyCodeBlockCSS();
+                                    }, 250);
                                 }
                             }),
                         ],
@@ -154,8 +158,8 @@
 
 <div class="oxygen-control-row oxygen-control-row-bottom-bar oxygen-control-row-bottom-bar-code-editor">
   <br>
-<b>Fatal error</b>:  Uncaught Error: Call to a member function codemirror_theme_chooser() on null in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/code-mixed.view.php:162
+<b>Fatal error</b>:  Uncaught Error: Call to a member function codemirror_theme_chooser() on null in /Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/code-mixed.view.php:166
 Stack trace:
 #0 {main}
-  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/code-mixed.view.php</b> on line <b>162</b><br>
+  thrown in <b>/Users/soyprayatna/Local Sites/luminr/app/public/wp-content/plugins/oxygen/component-framework/toolbar/views/code-mixed.view.php</b> on line <b>166</b><br>
 </div>

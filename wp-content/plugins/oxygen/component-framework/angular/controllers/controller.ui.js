@@ -3,7 +3,14 @@
  * 
  */
 
-var CTFrontendBuilderUI = angular.module('CTFrontendBuilderUI', ['ngAnimate', 'CTCommonDirectives']);
+var CTFrontendBuilderUI = angular.module('CTFrontendBuilderUI', ['ngAnimate', 'CTCommonDirectives'])
+.config( ['$provide', function ($provide){
+    $provide.decorator('$browser', ['$delegate', function ($delegate) {
+        $delegate.onUrlChange = function () {};
+        $delegate.url = function () { return ""};
+        return $delegate;
+    }]);
+}]);
 
 CTFrontendBuilderUI.config(function($rootScopeProvider) {
     $rootScopeProvider.digestTtl(16);
@@ -136,6 +143,12 @@ CTFrontendBuilderUI.controller("ControllerUI", function($controller, $anchorScro
 
     // search bar query
     $scope.componentsSearchQuery = '';
+
+    // context menu
+    $scope.contextMenu = {
+        id: 0,
+        show: false,
+    }
 
     // cached elements for client-side search
     var searchElementOriginalList = jQuery('#oxygen-toolbar-original-panels');
@@ -1389,6 +1402,12 @@ CTFrontendBuilderUI.controller("ControllerUI", function($controller, $anchorScro
      */
 
     $scope.disableContentEdit = function() {
+
+        // hide context menu
+        $scope.contextMenu = {
+            id: 0,
+            show: false,
+        }
 
         if ( !$scope.actionTabs["contentEditing"] )
             return false;
@@ -4466,10 +4485,14 @@ CTFrontendBuilderUI.controller("ControllerUI", function($controller, $anchorScro
         }
     }
 
-    $scope.evalGlobalConditions = function(id) {
+    $scope.evalGlobalConditions = function(id, name) {
 
         if(typeof(id) === 'undefined') {
           id = $scope.iframeScope.component.active.id;
+        }
+
+        if(typeof(name) === 'undefined') {
+            id = $scope.iframeScope.component.active.name;
         }
 
         if(!id) {
@@ -4503,16 +4526,16 @@ CTFrontendBuilderUI.controller("ControllerUI", function($controller, $anchorScro
 
             if(conditionspreview === 2) {
                 $scope.iframeScope.component.options[id]['model']['globalConditionsResult'] = true;
-                $scope.iframeScope.setOptionModel('globalConditionsResult', true, id);
+                $scope.iframeScope.setOptionModel('globalConditionsResult', true, id, name);
             } 
             else if (conditionspreview === 0) {
                 $scope.iframeScope.component.options[id]['model']['globalConditionsResult'] = false;
-                $scope.iframeScope.setOptionModel('globalConditionsResult', false, id);
+                $scope.iframeScope.setOptionModel('globalConditionsResult', false, id, name);
             }
             else if($scope.iframeScope.component.options[id]['model']['globalconditions']) {
               $scope.getConditionsResult(function(result) {
                   $scope.iframeScope.component.options[id]['model']['globalConditionsResult'] = result;
-                  $scope.iframeScope.setOptionModel('globalConditionsResult', result, id);
+                  $scope.iframeScope.setOptionModel('globalConditionsResult', result, id, name);
               }, null, id);
             }
           }
@@ -4696,6 +4719,13 @@ CTFrontendBuilderUI.controller("ControllerUI", function($controller, $anchorScro
 
     jQuery('body')
         .on('paste', '[contenteditable]:not(.cm-content)', stripFormatting);
+
+    $scope.contextMenuItemAfterClick = function(event){
+        event.stopPropagation()
+        event.preventDefault()
+        $scope.contextMenu.show = false;
+        $scope.contextMenu.id = 0;
+    }
 
 });
 

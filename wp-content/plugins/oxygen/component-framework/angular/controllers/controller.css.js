@@ -1554,15 +1554,17 @@ CTFrontendBuilder.controller("ControllerCSS", function($scope, $parentScope, $ht
 				}
 
 				if (componentId != 0 && typeof(stateOption) === "object" && 
+					stateName != "sizes" && 
+					stateName != "sizes_requested" && 
 					stateName != "model" && 
 					stateName != "classes" &&
 					stateName != "media" ) {
 					
 					// make a copy to not modify original Object
 					var mergedOptions 			= angular.copy(componentOptions[stateName]),
-						stateOptions  			= $scope.getCSSOptions(componentId, stateName, mergedOptions, componentOptions.name);
+						stateOptions  			= $scope.getCSSOptions(componentId, stateName, mergedOptions, componentOptions.name, whichMedia, {id:componentId, state:stateName});
 						mergedOriginalOptions 	= angular.copy(componentOptions['original']),
-						originalOptions 		= $scope.getCSSOptions(componentId, 'original', mergedOriginalOptions, componentOptions.name);
+						originalOptions 		= $scope.getCSSOptions(componentId, 'original', mergedOriginalOptions, componentOptions.name, whichMedia, {id:componentId, state:stateName});
 
 					// apply styles to id
 					if (
@@ -3323,7 +3325,39 @@ CTFrontendBuilder.controller("ControllerCSS", function($scope, $parentScope, $ht
 								continue;
 							}
 
-							if (stateOptions.hasOwnProperty(parameter)) {
+							if (mergedOptions.hasOwnProperty(parameter)) {
+
+								if ($scope.fixUnits && isMedia) {
+									if (parameter.indexOf('-unit')==-1) {
+										var unitName = parameter+'-unit',
+											mediaValue      = mergedOptions[parameter],
+											mediaUnitValue  = mergedOptions[unitName],
+											parentUnitValue = $scope.getClosestBreakpointValue(unitName, whichMedia, {id:componentId, state:stateName});
+										
+										if (mediaValue && !mediaUnitValue && parentUnitValue) {
+											var name = componentOptions.name + ' [id:' + componentId + ']',
+												// get default unit i.e. 'px' or '%'
+												defaultUnit = $scope.defaultOptions[componentOptions.name][unitName];
+
+											// section padding units fallsback to global settings
+											if (unitName.indexOf("container-padding") > -1) {
+												defaultUnit = $scope.globalSettings.sections[unitName];
+											}
+
+											console.log(name + ' has "' + parameter + '" with no unit on "' + whichMedia + '" breakpoint');
+
+        									$scope.findComponentItem($scope.componentsTree.children, componentId, function(key, item) {
+												// update components tree
+												item.options['media'][whichMedia][stateName][unitName] = defaultUnit;
+												// set options for $scope.component.options
+												$scope.applyComponentSavedOptions(componentId, item);
+ 											});
+
+											console.log(name + ' default "' + defaultUnit + '" unit added for "' + unitName + '"');
+											console.log('-------------------------');
+										}
+									}
+								}
 
 								var value = stateOptions[parameter];
 
@@ -4395,8 +4429,19 @@ CTFrontendBuilder.controller("ControllerCSS", function($scope, $parentScope, $ht
 					currentState = ":" + state;
 				}
 
+				var breakpointOptions = {
+					'state': state,
+				}
+
+				if (isCustomSelectors) {
+					breakpointOptions.selector = name
+				}
+				else {
+					breakpointOptions.class = name
+				}
+
 				// filter styles
-				var options = $scope.getCSSOptions(null, null, styles);
+				var options = $scope.getCSSOptions(null, null, styles, null, whichMedia, breakpointOptions);
 				var contentAdded = false;
 
 				style += $scope.generateAllAPISelectorsCSS(name, options, 'class');
@@ -5340,6 +5385,39 @@ CTFrontendBuilder.controller("ControllerCSS", function($scope, $parentScope, $ht
 						}
 						else if ( parameter == "filter" ) {
 							continue;
+						}
+
+						if ($scope.fixUnits && whichMedia) {
+							if (parameter.indexOf('-unit')==-1) {
+								var unitName = parameter+'-unit',
+									mediaValue      = styles[parameter],
+									mediaUnitValue  = styles[unitName],
+									parentUnitValue = $scope.getClosestBreakpointValue(unitName, whichMedia, {class:name, state:state}),
+									defaultUnit = $scope.defaultOptions['all'][unitName];
+
+								// section padding units fallsback to global settings
+								if (unitName.indexOf("container-padding") > -1) {
+									defaultUnit = $scope.globalSettings.sections[unitName];
+								}
+
+								if (mediaValue && !mediaUnitValue && parentUnitValue && defaultUnit) {
+									// get default unit i.e. 'px' or '%'
+
+									console.log('"' + name + '" has "' + parameter + '" with no unit on "' + whichMedia + '" breakpoint');
+
+									if (!isCustomSelectors) {
+										// classes
+										$scope.classes[name]['media'][whichMedia][state][unitName] = defaultUnit;
+									}
+									else {
+										// custom selectors
+										$scope.customSelectors[name]['media'][whichMedia][state][unitName] = defaultUnit;
+									}
+									
+									console.log('"' + name + '" default "' + defaultUnit + '" unit added for "' + unitName + '"');
+									console.log('-------------------------');
+								}
+							}
 						}
 				
 						if ( parameter.trim().toLowerCase() == "content" ) {
@@ -6291,6 +6369,7 @@ CTFrontendBuilder.controller("ControllerCSS", function($scope, $parentScope, $ht
 	$scope.$watch('globalSettings.sections', function(newVal, oldVal){
 		$scope.pageSettingsUpdate();
 		$scope.applyModelOptions();
+		$scope.unsavedChanges();
 	}, true);
 
 
@@ -6316,6 +6395,7 @@ CTFrontendBuilder.controller("ControllerCSS", function($scope, $parentScope, $ht
 
 	$scope.$watch('pageSettingsMeta', function(newVal, oldVal){
 		$scope.pageSettingsUpdate();
+		$scope.unsavedChanges();
 	}, true);
 
 

@@ -1,4 +1,11 @@
-var CTFrontendBuilder = angular.module('CTFrontendBuilder', ['ngAnimate', "dndLists", 'CTCommonDirectives']);
+var CTFrontendBuilder = angular.module('CTFrontendBuilder', ['ngAnimate', "dndLists", 'CTCommonDirectives'])
+.config( ['$provide', function ($provide){
+    $provide.decorator('$browser', ['$delegate', function ($delegate) {
+        $delegate.onUrlChange = function () {};
+        $delegate.url = function () { return ""};
+        return $delegate;
+    }]);
+}]);
 
 var iframeScope;
 var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
@@ -7,6 +14,7 @@ CTFrontendBuilder.controller("MainController", function($scope, $parentScope, $h
     ctScopeService.store('scope', $scope);
     // log
     $scope.log = false;
+    $scope.updateCM = false;
     
     $scope.dynamicListActions = {
         actions:[],
@@ -117,6 +125,8 @@ CTFrontendBuilder.controller("MainController", function($scope, $parentScope, $h
     $scope.fixShortcodes = CtBuilderAjax['fixShortcodes'];
     $scope.fixShortcodesFound = false;
     $scope.latestParent = 0;
+
+    $scope.fixUnits = CtBuilderAjax['fixUnits'];
 
     $scope.dynamicListAction = function(instanceId, componentID, doit, virtualTreeItem, data) {
         
@@ -232,6 +242,7 @@ CTFrontendBuilder.controller("MainController", function($scope, $parentScope, $h
         // fonts
         $scope.getWebFontsList();
         $scope.updateGlobalSettingsCSS();
+        $scope.loadEditingList();
 
         $scope.loadSVGIconSets();
         
@@ -1028,6 +1039,16 @@ CTFrontendBuilder.controller("MainController", function($scope, $parentScope, $h
             range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
             range.select();//Select the range (make it the visible selection
         }
+    }
+
+    /**
+     * Select the text of contenteditbale. 
+     *
+     * @since 4.9
+     */
+
+    $scope.selectContentEditableText = function(contentEditableElement) {
+        window.parent.getSelection().selectAllChildren(contentEditableElement);
     }
 
     /**
@@ -1946,7 +1967,7 @@ CTFrontendBuilder.controller("MainController", function($scope, $parentScope, $h
      * @author gagan goraya
      */    
 
-    $scope.setEditableFriendlyName = function(id, event) {
+    $scope.setEditableFriendlyName = function(id, event, selectText) {
 
         if (event) {
             $scope.editableFriendlyNamePropertiesPane = id;
@@ -1965,6 +1986,17 @@ CTFrontendBuilder.controller("MainController", function($scope, $parentScope, $h
 
         item.options['nicename'] = trimmedText;
         $scope.component.options[$scope.component.active.id]['nicename'] = trimmedText;
+
+        if (selectText) {
+            $timeout(function() {
+                var input = jQuery(".oxygen-active-element-name-editable", parent.document)[0];
+                // if fired from the UI
+                if (!input) {
+                    input = jQuery(".oxygen-active-element-name-editable", document)[0];
+                }
+                $scope.selectContentEditableText(input);
+            }, 0);
+        }
        
         // close the menu
         if(id > 0) {
@@ -2122,7 +2154,6 @@ CTFrontendBuilder.controller("MainController", function($scope, $parentScope, $h
     $scope.cancelDeleteUndo = function(id, name) {
 
         $scope.idToInsert = -1;
-        $scope.hideNoticeModal();
     }
 
 
@@ -3584,7 +3615,9 @@ CTFrontendBuilder.controller("MainController", function($scope, $parentScope, $h
         }
 
         var options   = activateAttr +
+                        'oxy-right-click '+
                         'ng-attr-component-id="'+id+'" ' + 
+                        'ng-attr-component-name="'+componentName+'" ' + 
                         'ctevalconditions ' +
                         'ng-class="{\'ct_hidden_by_conditional_logic\': component.options['+id+ '][\'model\'][\'globalConditionsResult\'] === false, \'ct-active\' : parentScope.isActiveId('+id+'),\'ct-active-parent\' : parentScope.isActiveParentId('+id+')&&globalSettings.indicateParents==\'true\''+
                         ((componentName == 'oxy_dynamic_list')?',\'oxy_list_render_single oxy-dynamic-list-edit\':component.options['+id+ '][\'model\'][\'listrendertype\']' :'') +
@@ -5315,7 +5348,7 @@ CTFrontendBuilder.controller("MainController", function($scope, $parentScope, $h
             window.onbeforeunload = $scope.confirmOnPageExit;
         }
 
-        jQuery("#ct-save-button").addClass("ct-unsaved-changes");
+        $parentScope.oxygenUIElement.addClass("oxygen-unsaved-changes");
     }
 
 
@@ -5327,7 +5360,7 @@ CTFrontendBuilder.controller("MainController", function($scope, $parentScope, $h
     
     $scope.allSaved = function() {
         window.onbeforeunload = null;
-        jQuery("#ct-save-button").removeClass("ct-unsaved-changes");
+        $parentScope.oxygenUIElement.removeClass("oxygen-unsaved-changes");
     }
 
 
